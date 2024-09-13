@@ -49,7 +49,7 @@ export default function BlogSection() {
 
   return (
     <>
-      {/* <section className={styles.blogSection}>
+       <section className={styles.blogSection}>
         <h1>Our Recent Blogs</h1>
         <div className={styles.blogsContainer}>
           {lastThreeBlogs.map((blog) => (
@@ -71,7 +71,7 @@ export default function BlogSection() {
           
           ))}
         </div>
-      </section> */}
+      </section> 
       
     </>
   );

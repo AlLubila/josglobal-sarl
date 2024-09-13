@@ -37,7 +37,7 @@ export default function Home() {
       <Testimony />
       <BlogSection />
       {/* SEPARATION BAR */}
-
+      <div className='bar'></div>
       <ContactForm />
      <footer>
      <Footer/>
