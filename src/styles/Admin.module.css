@@ -1,0 +1,32 @@
+.formContainer{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+.formContainer input, .formContainer textarea{
+    width: 1080px;
+    max-width: 85%;
+    padding: 10px 10px;
+    border-radius: 10px;
+    outline: none;
+    color: black;
+    background-color: rgb(247, 236, 236);
+}
+
+.formContainer button{
+    padding: 10px 45px;
+    border-radius: 10px;
+    background-color: rgb(141, 141, 241);
+    font-size: 17px;
+    font-weight:600;
+    transition: background 0.3s ease;
+}
+
+.formContainer button:hover{
+    background: rgb(88, 88, 255);
+}
+
+

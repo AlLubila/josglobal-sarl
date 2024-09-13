@@ -1,0 +1,186 @@
+.aboutTitle {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+  }
+  
+  .aboutTitle h1 {
+    font-size: 40px;
+    font-weight: bold;
+  }
+  
+  .aboutTitle p {
+    text-align: center;
+    line-height: 2rem;
+  }
+  
+  .mission {
+    display: flex;
+  }
+  
+  .leftMission {
+    flex: 1;
+  }
+  
+  .rightMission {
+    flex: 1;
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .rightMission h1 {
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .rightMission p {
+    line-height: 2rem;
+  }
+  
+  .valueProposition {
+    display: flex;
+    margin-top: 70px;
+  }
+  
+  .leftValueP {
+    flex: 1;
+  }
+  
+  .rightValueP {
+    flex: 1;
+    justify-content: flex-end;
+  }
+  
+  .leftValueP h1 {
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .leftValueP p {
+    line-height: 2rem;
+    width: 600px;
+  }
+  
+  .coreValues {
+    margin-top: 230px;
+    margin-bottom: 150px;
+  }
+  
+  .coreValues h1 {
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 70px;
+  }
+
+  .coreValueImg_tablet{
+    display: none;
+  }
+  
+  .coreValueImg_mobile_L{
+    display: none;
+  }
+
+  @media (max-width:821px){
+    .aboutTitle{
+      height: 500px;
+    }
+    .mission{
+        text-align: center;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.703);
+        transform: translateY(-5px);
+        padding: 15px;
+      }
+    
+      .leftMission{
+        display: none;
+      }
+    
+      .valueProposition{
+        text-align: center;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.703);
+        transform: translateY(-5px);
+        padding: 15px;
+      }
+    
+      .leftValueP p{
+        width: 100%;
+      }
+
+      .rightValueP{
+        display: none;
+      }
+      
+    
+      .coreValueImg{
+        display: none;
+      }
+    
+      .coreValueImg_tablet{
+        display: block;
+      }
+  }
+
+  @media (max-width:481px) {
+
+    .aboutTitle p{
+      font-size: 15px;
+    }
+  
+    .rightMission h1{
+      font-size: 30px;
+    }
+  
+    .rightMission p{
+      font-size: 15px;
+    }
+  
+    .leftValueP h1{
+      font-size: 30px;
+    }
+  
+    .leftValueP p{
+      font-size: 15px;
+    }
+  
+    .coreValueImg_tablet{
+      display: none;
+    }
+  
+    .coreValueImg_mobile_L{
+      display: block;
+    }
+}
+
+@media (max-width:394px) {
+    .rightMission h1{
+      font-size: 25px;
+    }
+  
+    .rightMission p{
+      font-size: 14.5px;
+    }
+  
+    .leftValueP h1{
+      font-size: 25px;
+    }
+  
+    .leftValueP p{
+      font-size: 14.5px;
+    }
+  }

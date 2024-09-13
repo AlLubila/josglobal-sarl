@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html{
+scroll-behavior: smooth;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background:#021526;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* STYLES OF LOADING PAGE */
+.pendulum{
+  display: flex;
+  align-items: center;
+  min-height: calc(100vh - 167.5px);
+  justify-content: center;
+}
+
+.pendulum_box{
+  display: flex;
+  padding: 120px 0 0 10px;
+  position: absolute;
+  flex: 1;
+}
+.ball{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  position: relative;
+  transform-origin: 50% -300%;
+}
+
+.ball.first{
+  animation: firstball .9s alternate ease-in infinite;
+}
+
+@keyframes firstball{
+  0%{
+    transform: rotate(35deg);
+  }
+  50%{
+    transform: rotate(0deg);
+  }
+}
+
+.ball.last{
+  animation: lastball .9s alternate ease-out infinite;
+}
+
+@keyframes lastball{
+  50%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(-35deg);
+  }
+}
+
+
+/* STYLES OF HOME PAGE */
+.bar {
+  width: 85%;
+  height: 1px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* STYLES OF NOT FOUND PAGE */
+.NotFoundcontainer{
+  display: flex;
+  align-items: center;
+  min-height: calc(100vh - 367.5px);
+  justify-content: center;
+}
+
+/* STYLES OF ERROR PAGE */
+.errorContainer{
+  display: flex;
+  align-items: center;
+  min-height: calc(100vh - 367.5px);
+  justify-content: center;
+}
+
+
+footer{
+  padding: 0 5%;
+}
+
+
+  /******** RESPONSIVE STYLES *******/

@@ -1,0 +1,38 @@
+.testimony {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+  }
+
+
+  .testimonies_tablet{
+    display: none;
+  }
+  .testimonies_mobile_L{
+    display: none;
+  }
+
+
+@media (max-width:821px) {
+
+    .testimonies{
+      display: none;
+    }
+  
+    .testimonies_tablet{
+      display: block;
+    }
+  }
+  
+  @media (max-width:481px) {
+  
+    .testimonies_tablet{
+      display: none;
+    }
+  
+    .testimonies_mobile_L{
+      display: block;
+    }
+  }
+  

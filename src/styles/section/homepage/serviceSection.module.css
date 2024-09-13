@@ -1,0 +1,20 @@
+.service {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 90px;
+  }
+
+.serviceImg_phone{
+    display: none;
+}
+
+@media (max-width:481px) {
+    .serviceImg_phone{
+        display: block;
+    }
+
+    .serviceImg{
+        display: none;
+    }
+}
