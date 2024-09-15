@@ -33,7 +33,7 @@ export default function Home() {
       <AboutSection />
       <ServiceSection />
       {/* SEPARATION BAR */}
-      <div className='bar'></div>
+    
       <Testimony />
       <BlogSection />
       {/* SEPARATION BAR */}

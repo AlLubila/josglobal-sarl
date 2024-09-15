@@ -50,8 +50,8 @@ export default function Blog() {
   return (
     <>
       <div className={styles.blogSection}>
-        <h1>Our Blogs</h1>
-        {loading ? (
+        <h1 style={{marginTop: '100px'}}>Our Blogs</h1>
+        {/* {loading ? (
           <div>
             <Loading/>
           </div>
@@ -83,7 +83,41 @@ export default function Blog() {
               );
             })}
           </div>
-        )}
+        )} */}
+
+      <div className={styles.blogsContainer}>
+      <div className="flex flex-col p-5 lg:px-48 lg:py-11">
+    <div className="bg-gray-700 p-5 mb-10 rounded-lg shadow-lg">
+        <h1 className="font-bold text-2xl mb-0 text-white">Tailwind Rocks!</h1>
+        <p className="mt-1 mb-6 text-gray-300">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius eaque a ipsam aliquid omnis,
+            beatae possimus recusandae illum rem. Minima sequi voluptas repudiandae id? Quae, facere quam suscipit sed,
+            aperiam sapiente pariatur soluta enim perferendis illum veniam excepturi doloribus ducimus voluptatibus
+            numquam officiis expedita culpa hic sequi quasi reprehenderit iste obcaecati nostrum. Consequuntur aliquam,
+            assumenda architecto animi veniam dolore dolor?</p>
+        <button className="text-white font-semibold bg-blue-500 hover:bg-blue-600 p-2 rounded">Read More...</button>
+    </div>
+    <div className="bg-gray-700 p-5 mb-10 rounded-lg shadow-lg">
+        <h1 className="font-bold text-2xl mb-0 text-white">Tailwind Rocks!</h1>
+        <p className="mt-1 mb-6 text-gray-300">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius eaque a ipsam aliquid omnis,
+            beatae possimus recusandae illum rem. Minima sequi voluptas repudiandae id? Quae, facere quam suscipit sed,
+            aperiam sapiente pariatur soluta enim perferendis illum veniam excepturi doloribus ducimus voluptatibus
+            numquam officiis expedita culpa hic sequi quasi reprehenderit iste obcaecati nostrum. Consequuntur aliquam,
+            assumenda architecto animi veniam dolore dolor?</p>
+        <button className="text-white font-semibold bg-blue-500 hover:bg-blue-600 p-2 rounded">Read More...</button>
+    </div>
+    <div className="bg-gray-700 p-5 mb-10 rounded-lg shadow-lg">
+        <h1 className="font-bold text-2xl mb-0 text-white">Tailwind Rocks!</h1>
+        <p className="mt-1 mb-6 text-gray-300">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius eaque a ipsam aliquid omnis,
+            beatae possimus recusandae illum rem. Minima sequi voluptas repudiandae id? Quae, facere quam suscipit sed,
+            aperiam sapiente pariatur soluta enim perferendis illum veniam excepturi doloribus ducimus voluptatibus
+            numquam officiis expedita culpa hic sequi quasi reprehenderit iste obcaecati nostrum. Consequuntur aliquam,
+            assumenda architecto animi veniam dolore dolor?</p>
+        <button className="text-white font-semibold bg-blue-500 hover:bg-blue-600 p-2 rounded">Read More...</button>
+    </div>
+</div>
+
+
+      </div>  
       </div>
     </>
   );

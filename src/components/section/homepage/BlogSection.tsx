@@ -43,9 +43,9 @@ export default function BlogSection() {
   const sortedBlogs = blogs.sort((a, b) => b._id.localeCompare(a._id));
   const lastThreeBlogs = sortedBlogs.slice(0, 3);
 
-  if (lastThreeBlogs.length === 0) {
-    return null; // No blogs, render nothing
-  }
+  // if (lastThreeBlogs.length === 0) {
+  //   return null; 
+  // }
 
   return (
     <>
@@ -72,6 +72,88 @@ export default function BlogSection() {
               </div>
             );
           })}
+           
+    <section className="flex flex-col justify-center max-w-7xl px-4 py-10 mx-auto sm:px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 px-1">
+            <div className="p-4 flex flex-col justify-between gap-2 border rounded-lg shadow-md bg-white dark:bg-gray-700 dark:border-gray-400/40">
+                <p className="text-xl font-semibold text-blue-700 hover:underline two-lines dark:text-blue-100">
+                    Football Legends Gerrard and Carragher Fall Prey to Fictitious Rap Song
+                </p>
+
+                <p className="text-gray-800 two-lines dark:text-gray-300">
+                    A disconcerting rap song about murder featuring fake voices of renowned footballers Steven Gerrard
+                    and
+                    Jamie
+                    Carragher, created by prisoner L20 Mazza, has become a sensation online.
+                </p>
+
+                <div className="flex items-center justify-between text-sm">
+
+                    <Link href="#" className="text-blue-700 hover:underline dark:text-white">
+                        Read more
+                    </Link>
+                </div>
+            </div>
+            <div className="p-4 flex flex-col justify-between gap-2 border rounded-lg shadow-md bg-white dark:bg-gray-700 dark:border-gray-400/40">
+                <p className="text-xl font-semibold text-blue-700 hover:underline two-lines dark:text-blue-100">
+                    Football Legends Gerrard and Carragher Fall Prey to Fictitious Rap Song
+                </p>
+
+                <p className="text-gray-800 two-lines dark:text-gray-300">
+                    A disconcerting rap song about murder featuring fake voices of renowned footballers Steven Gerrard
+                    and
+                    Jamie
+                    Carragher, created by prisoner L20 Mazza, has become a sensation online.
+                </p>
+
+                <div className="flex items-center justify-between text-sm">
+
+                    <Link href="#" className="text-blue-700 hover:underline dark:text-white">
+                        Read more
+                    </Link>
+                </div>
+            </div>
+            <div className="p-4 flex flex-col justify-between gap-2 border rounded-lg shadow-md bg-white dark:bg-gray-700 dark:border-gray-400/40">
+                <p className="text-xl font-semibold text-blue-700 hover:underline two-lines dark:text-blue-100">
+                    Football Legends Gerrard and Carragher Fall Prey to Fictitious Rap Song
+                </p>
+
+                <p className="text-gray-800 two-lines dark:text-gray-300">
+                    A disconcerting rap song about murder featuring fake voices of renowned footballers Steven Gerrard
+                    and
+                    Jamie
+                    Carragher, created by prisoner L20 Mazza, has become a sensation online.
+                </p>
+
+                <div className="flex items-center justify-between text-sm">
+
+                    <Link href="#" className="text-blue-700 hover:underline dark:text-white">
+                        Read more
+                    </Link>
+                </div>
+            </div>
+            <div className="p-4 flex flex-col justify-between gap-2 border rounded-lg shadow-md bg-white dark:bg-gray-700 dark:border-gray-400/40">
+                <p className="text-xl font-semibold text-blue-700 hover:underline two-lines dark:text-blue-100">
+                    Football Legends Gerrard and Carragher Fall Prey to Fictitious Rap Song
+                </p>
+
+                <p className="text-gray-800 two-lines dark:text-gray-300">
+                    A disconcerting rap song about murder featuring fake voices of renowned footballers Steven Gerrard
+                    and
+                    Jamie
+                    Carragher, created by prisoner L20 Mazza, has become a sensation online.
+                </p>
+
+                <div className="flex items-center justify-between text-sm">
+
+                    <Link href="#" className="text-blue-700 hover:underline dark:text-white">
+                        Read more
+                    </Link>
+                </div>
+            </div>
+          
+        </div>
+    </section>
         </div>
       </section> 
     </>
