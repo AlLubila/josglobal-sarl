@@ -43,6 +43,7 @@ interface FormData {
   description: string;
   content: string;
   image: File | null;
+  imageUrl: string; // Store the existing image URL
 }
 
 const DESCRIPTION_MAX_LENGTH = 200;
@@ -54,6 +55,7 @@ export default function ContentManagement() {
     description: '',
     content: '',
     image: null,
+    imageUrl: '', // Initialize with empty string
   });
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -79,10 +81,6 @@ export default function ContentManagement() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!formData.image && !editBlogId) {
-      setMessage('Please upload an image.');
-      return;
-    }
     setIsSubmitting(true);
     setMessage('');
 
@@ -91,18 +89,27 @@ export default function ContentManagement() {
       form.append('title', formData.title);
       form.append('description', formData.description);
       form.append('content', formData.content);
+
       if (formData.image) {
         form.append('image', formData.image);
+      } else if (editBlogId) {
+        form.append('imageUrl', formData.imageUrl || ''); // Ensure imageUrl is provided
+      } else {
+        setMessage('No image uploaded. Please upload an image or select an existing one.');
+        setIsSubmitting(false);
+        return;
       }
+
       const response = await fetch(`/api/blogs/${editBlogId || ''}`, {
         method: editBlogId ? 'PUT' : 'POST',
         body: form,
       });
+
       const result = await response.json();
 
       if (response.ok) {
         setMessage(editBlogId ? 'Blog updated successfully!' : 'Blog created successfully!');
-        setFormData({ title: '', description: '', content: '', image: null });
+        setFormData({ title: '', description: '', content: '', image: null, imageUrl: '' });
         setDescriptionLength(0);
         setEditBlogId(null);
         const fetchedBlogs = await fetchBlogs();
@@ -133,6 +140,7 @@ export default function ContentManagement() {
       description: blog.description,
       content: blog.content,
       image: null,
+      imageUrl: blog.imageUrl, // Set existing image URL
     });
     setEditBlogId(blog._id);
   };
@@ -219,6 +227,19 @@ export default function ContentManagement() {
                 className="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-blue-500 focus:ring-2 focus:outline-none"
               />
             </div>
+
+            <div>
+              {editBlogId && formData.imageUrl && (
+                <div className="mt-4">
+                  <img
+                    src={formData.imageUrl}
+                    alt="Current blog image"
+                    className="w-full h-auto rounded-lg"
+                  />
+                </div>
+              )}
+            </div>
+
             <button
               type="submit"
               disabled={isSubmitting}
@@ -301,5 +322,3 @@ export default function ContentManagement() {
     </>
   );
 }
-
-

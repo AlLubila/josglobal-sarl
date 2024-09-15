@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "@/styles/Blog.module.css";
 import Loading from "@/components/Loading";
+import { getImgProps } from '@/utils/getImgProps';
 
 interface Blog {
   _id: string;
@@ -17,11 +18,9 @@ interface Blog {
 async function fetchBlogs(): Promise<Blog[]> {
   try {
     const res = await fetch('/api/blogs', { cache: 'no-store' });
-
     if (!res.ok) {
       throw new Error('Failed to fetch blogs');
     }
-
     return await res.json(); // Return the parsed JSON data
   } catch (error) {
     console.error('Error fetching blogs:', error);
@@ -58,19 +57,20 @@ export default function Blog() {
           </div>
         ) : blogs.length === 0 ? (
           <div className={styles.noBlogs}>
-            <p>No blogs available</p>  {/* Changed message here */}
+            <p>No blogs available</p>
           </div>
         ) : (
           <div className={styles.blogsContainer}>
-            {blogs.map((blog) => (
-              <article key={blog._id} className={styles.blog}>
-                <Link href={`/blog/${blog._id}`} passHref className={styles.link}>
-                  
+            {blogs.map((blog) => {
+              const imgProps = getImgProps(blog.imageUrl); // Get image properties
+              return (
+                <article key={blog._id} className={styles.blog}>
+                  <Link href={`/blog/${blog._id}`} passHref className={styles.link}>
                     <Image
-                      src={blog.imageUrl}
+                      src={imgProps.src}
                       alt={`Image of ${blog.title}`}
-                      width={300}
-                      height={300}
+                      width={imgProps.width}
+                      height={imgProps.height}
                       layout="responsive"
                     />
                     <h1>{blog.title}</h1>
@@ -78,11 +78,10 @@ export default function Blog() {
                     <div className={styles.readMore}>
                       <button>Read More</button>
                     </div>
-                  
-                </Link>
-              </article>
-            ))}
-         
+                  </Link>
+                </article>
+              );
+            })}
           </div>
         )}
       </div>
