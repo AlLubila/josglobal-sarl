@@ -4,6 +4,31 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { isAdminLoggedIn } from '@/utils/auth';
 import { off } from 'process';
+import { log } from 'console';
+
+
+interface Blog {
+  _id: string;
+  title: string;
+  description: string;
+  content: string;
+  imageUrl: string;
+}
+
+async function fetchBlogs(): Promise<Blog[]> {
+  try {
+    const res = await fetch('/api/blogs', { cache: 'no-store' });
+
+    if (!res.ok) {
+      throw new Error('Failed to fetch blogs');
+    }
+
+    return await res.json(); // Return the parsed JSON data
+  } catch (error) {
+    console.error('Error fetching blogs:', error);
+    return [];
+  }
+}
 
 interface FormData {
   title: string;
@@ -15,6 +40,7 @@ interface FormData {
 const DESCRIPTION_MAX_LENGTH = 200; // Set character limit for description
 
 export default function ContentManagement() {
+  const [blogs, setBlogs] = useState<Blog[]>([]);
   const router = useRouter();
 
   const [formData, setFormData] = useState<FormData>({
@@ -33,6 +59,22 @@ export default function ContentManagement() {
       router.push('/unauthorized');
     }
   }, [router]);
+
+  // Fetch existing blogs
+  useEffect(() => {
+    const getBlogs = async () => {
+      try {
+        const fetchedBlogs = await fetchBlogs();
+        setBlogs(fetchedBlogs);
+      } catch (error) {
+        console.error('Error fetching blogs:', error);
+      }
+    };
+
+    getBlogs();
+  }, []);
+  console.log(blogs);
+  
 
   // Handle form submit (create or update)
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -174,12 +216,39 @@ export default function ContentManagement() {
       </section>
 
       {/* Blog Post List for Edit/Delete */}
-      <section className="w-full max-w-4xl bg-gray-800 p-6 rounded-lg shadow-lg">
-        <h2 className="text-xl font-bold mb-4 text-center">Existing Posts</h2>
-        <div className="space-y-4">
-            <p className="text-center text-gray-400">No posts available.</p>
-        </div>
-      </section>
+     {/* Blog Post List for Edit/Delete */}
+{/* Blog Post List for Edit/Delete */}
+<section className="w-full max-w-4xl bg-gray-800 p-6 rounded-lg shadow-lg">
+  <h2 className="text-xl font-bold mb-4 text-center">Existing Posts</h2>
+  <div className="overflow-x-auto">
+    {
+      blogs.length > 0 ? (
+        <table className="table-auto w-full text-left text-gray-300">
+          <thead className="bg-gray-700">
+            <tr>
+              <th className="px-4 py-2">#</th>
+              <th className="px-4 py-2">Title</th>
+              <th className="px-4 py-2">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            {blogs.map((blog, index) => (
+              <tr key={blog._id} className="border-b border-gray-600 hover:bg-gray-700">
+                <td className="px-4 py-4 text-center">{index + 1}</td>
+                <td className="px-4 py-4 text-blue-400 font-semibold">{blog.title}</td> {/* Title column with blue text */}
+                <td className="px-4 py-4 text-gray-400">{blog.description}</td> {/* Description column with gray text */}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p className="text-center text-gray-400">No posts available.</p>
+      )
+    }
+  </div>
+</section>
+
+
     </div>
     </>
   );
