@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "@/styles/Blog.module.css";
 import Loading from "@/components/Loading";
-import { getImgProps } from '@/utils/getImgProps';
 import { useRouter } from "next/navigation";
 
 interface Blog {
@@ -13,7 +12,6 @@ interface Blog {
   title: string;
   description: string;
   content: string;
-  imageUrl: string;
 }
 
 async function fetchBlogs(): Promise<Blog[]> {
@@ -58,12 +56,11 @@ export default function Blog() {
           </div>
         ) : blogs.length === 0 ? (
           <div className={styles.noBlogs}>
-            <p>No blogs available</p>
+            <p style={{textAlign:'center'}}>No blogs available</p>
           </div>
         ) : (
           <div className={styles.blogsContainer}>
             {blogs.map((blog) => {
-              // const imgProps = getImgProps(blog.imageUrl); // Get image properties
               return (
                 <div key={blog._id} className="flex flex-col p-5 lg:px-48 lg:py-11">
                   <div className="bg-gray-700 p-5 mb-10 rounded-lg shadow-lg">

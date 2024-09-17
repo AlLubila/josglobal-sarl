@@ -13,7 +13,6 @@ interface Blog {
   title: string;
   description: string;
   content: string;
-  imageUrl: string;
 }
 
 async function fetchBlog(id: string): Promise<Blog | null> {
@@ -70,27 +69,12 @@ export default function SinglePost() {
   return (
     <>
     <div className={styles.container}>
-      {/* <div className={styles.imgContainer}>
-      <Image
-        src={blog.imageUrl}
-        alt={`Image of ${blog.title}`}
-        width={600}
-        height={400}
-        className={styles.image}
-        layout="responsive"
-      />
-      </div>
-      <div className={styles.textContainer}>
-      <h1 className={styles.title}>{blog.title}</h1>
-      <div className={styles.content}>{blog.content}</div>
-      </div> */}
-
 <div className="relative p-4">
     <div className="max-w-7xl mx-auto">
         <div
             className="mt-3 rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
             <div className="">
-                <h1 className="text-white font-bold text-4xl mb-11">Portrait Photography In Early Days</h1>
+                <h1 className="text-white font-bold text-4xl mb-11">{blog.title}</h1>
                 <hr/>
                 <p className="text-base leading-8 my-5">
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the

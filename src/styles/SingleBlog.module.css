@@ -1,6 +1,7 @@
 .container{
   min-height: 100vh;
   margin-top: 90px;
+  text-align: center;
 }
 
 .container h1{
@@ -15,7 +16,6 @@
 .image {
   border-radius: 12px;
 }
-
   
 .notFound {
   display: flex;
@@ -26,6 +26,7 @@
   font-size: 1.5rem;
   color: #757575;
 }
+
 
 .loading{
   display: flex;

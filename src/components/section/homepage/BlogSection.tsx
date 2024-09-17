@@ -4,13 +4,12 @@ import React, { useEffect, useState } from 'react';
 import styles from '@/styles/section/homepage/blogSection.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
-import { getImgProps } from '@/utils/getImgProps'; // Import the getImgProps function
+
 
 interface Blog {
   _id: string;
   title: string;
   description: string;
-  imageUrl: string;
 }
 
 async function fetchBlogs(): Promise<Blog[]> {
@@ -55,7 +54,6 @@ export default function BlogSection() {
         <h1>Our Recent Blogs</h1>
         <div className={styles.blogsContainer}>
           {lastThreeBlogs.map((blog) => {
-            const imgProps = getImgProps(blog.imageUrl); // Get image properties
             return (
               <section className="flex flex-col justify-center max-w-7xl px-4 py-10 mx-auto sm:px-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 px-1">
