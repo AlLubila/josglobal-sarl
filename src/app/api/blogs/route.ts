@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { uploadImage } from '@/lib/cloudinary';
 import { connectToDatabase } from '@/lib/mongoose';
 import Blog from '@/models/Blog';
 
@@ -7,18 +6,9 @@ import Blog from '@/models/Blog';
 export async function POST(req: NextRequest) {
   try {
     const formData = await req.formData();
-    const imageFile = formData.get('image') as File;
     const title = formData.get('title') as string;
     const description = formData.get('description') as string;
     const content = formData.get('content') as string;
-
-    // Convert image to a buffer
-    const buffer = await imageFile.arrayBuffer();
-    const uploadResponse = await uploadImage(Buffer.from(buffer));
-
-    // Extract the image URL from Cloudinary response
-    const imageUrl = (uploadResponse as any).secure_url;
-
     // Connect to MongoDB
     await connectToDatabase();
 
@@ -27,7 +17,6 @@ export async function POST(req: NextRequest) {
       title,
       description,
       content,
-      imageUrl,
     });
 
     await newBlog.save();

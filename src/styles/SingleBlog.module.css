@@ -1,7 +1,10 @@
 .container{
   min-height: 100vh;
-  text-align: center;
   margin-top: 90px;
+}
+
+.container h1{
+  text-align: center;
 }
 
 .imgContainer{
@@ -11,24 +14,6 @@
 
 .image {
   border-radius: 12px;
-}
-
-.title {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-  color: rgb(146, 146, 255);
-  font-family: "Georgia", serif;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-  text-align: center;
-}
-
-
-.content::first-letter {
-  font-size: 4em;
-  font-weight: bold;
-  float: left;
-  line-height: 0.8;
-  margin-right: 0.1em;
 }
 
   

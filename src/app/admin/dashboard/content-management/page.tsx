@@ -3,14 +3,13 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { isAdminLoggedIn } from '@/utils/auth';
-import { FaEdit, FaTrashAlt } from 'react-icons/fa'; // FontAwesome Icons for edit/delete
+import { FaEdit, FaTrashAlt } from 'react-icons/fa'; 
 
 interface Blog {
   _id: string;
   title: string;
   description: string;
   content: string;
-  imageUrl: string;
 }
 
 async function fetchBlogs(): Promise<Blog[]> {
@@ -42,8 +41,6 @@ interface FormData {
   title: string;
   description: string;
   content: string;
-  image: File | null;
-  imageUrl: string; // Store the existing image URL
 }
 
 const DESCRIPTION_MAX_LENGTH = 200;
@@ -53,9 +50,7 @@ export default function ContentManagement() {
   const [formData, setFormData] = useState<FormData>({
     title: '',
     description: '',
-    content: '',
-    image: null,
-    imageUrl: '', // Initialize with empty string
+    content: ''
   });
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -90,16 +85,6 @@ export default function ContentManagement() {
       form.append('description', formData.description);
       form.append('content', formData.content);
 
-      if (formData.image) {
-        form.append('image', formData.image);
-      } else if (editBlogId) {
-        form.append('imageUrl', formData.imageUrl || ''); // Ensure imageUrl is provided
-      } else {
-        setMessage('No image uploaded. Please upload an image or select an existing one.');
-        setIsSubmitting(false);
-        return;
-      }
-
       const response = await fetch(`/api/blogs/${editBlogId || ''}`, {
         method: editBlogId ? 'PUT' : 'POST',
         body: form,
@@ -109,7 +94,7 @@ export default function ContentManagement() {
 
       if (response.ok) {
         setMessage(editBlogId ? 'Blog updated successfully!' : 'Blog created successfully!');
-        setFormData({ title: '', description: '', content: '', image: null, imageUrl: '' });
+        setFormData({ title: '', description: '', content: '' });
         setDescriptionLength(0);
         setEditBlogId(null);
         const fetchedBlogs = await fetchBlogs();
@@ -139,8 +124,6 @@ export default function ContentManagement() {
       title: blog.title,
       description: blog.description,
       content: blog.content,
-      image: null,
-      imageUrl: blog.imageUrl, // Set existing image URL
     });
     setEditBlogId(blog._id);
   };
@@ -214,31 +197,6 @@ export default function ContentManagement() {
               />
             </div>
 
-            <div>
-              <label htmlFor="image" className="block text-sm font-semibold mb-2">Upload Image</label>
-              <input
-                id="image"
-                type="file"
-                accept="image/*"
-                onChange={(e) => {
-                  const file = e.target.files?.[0] || null;
-                  setFormData({ ...formData, image: file });
-                }}
-                className="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-blue-500 focus:ring-2 focus:outline-none"
-              />
-            </div>
-
-            <div>
-              {editBlogId && formData.imageUrl && (
-                <div className="mt-4">
-                  <img
-                    src={formData.imageUrl}
-                    alt="Current blog image"
-                    className="w-full h-auto rounded-lg"
-                  />
-                </div>
-              )}
-            </div>
 
             <button
               type="submit"

@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { connectToDatabase } from '@/lib/mongoose';
 import Blog from '@/models/Blog';
-import { uploadImage } from '@/lib/cloudinary';
 
 // Fetch a blog post by ID
 export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
@@ -27,21 +26,12 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
     const title = formData.get('title') as string;
     const description = formData.get('description') as string;
     const content = formData.get('content') as string;
-    let imageUrl = formData.get('image') as string | null;
-
-    if (formData.has('image')) {
-      const imageFile = formData.get('image') as File;
-      const buffer = await imageFile.arrayBuffer();
-      const uploadResponse = await uploadImage(Buffer.from(buffer));
-      imageUrl = (uploadResponse as any).secure_url;
-    }
 
     await connectToDatabase();
     const updatedBlog = await Blog.findByIdAndUpdate(params.id, {
       title,
       description,
       content,
-      imageUrl,
     }, { new: true });
 
     if (!updatedBlog) {
