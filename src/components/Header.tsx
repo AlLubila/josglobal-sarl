@@ -9,6 +9,7 @@ import styles from "../styles/Header.module.css";
 import Link from "next/link";
 
 import Cookies from 'js-cookie';
+import Image from "next/image";
 
 export default function Header() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -47,7 +48,9 @@ export default function Header() {
   return (
     <div className={styles.overlay}>
       <div className={styles.container}>
-        <Link href='/' className={styles.logo}>LOGO</Link>
+        <Link href='/' className={styles.logo}>
+        <Image src='/logo1.png' alt="website's logo" width={250} height={250}/>
+        </Link>
 
         {/* Hamburger Icon */}
         <div className={styles.hamburger} onClick={() => setMenuOpen(!isMenuOpen)}>

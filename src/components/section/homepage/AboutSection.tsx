@@ -42,11 +42,8 @@ export default function AboutSection() {
           <div className={styles.leftValueP}>
             <h1>Value Proposition</h1>
             <p>
-              OSGLOBAL Sarl delivers tailored and dependable sourcing solutions
-              for businesses, leveraging a strong network of trusted suppliers
-              <span style={{ fontWeight: "bold" }}>
-                across the EU, China, Dubai, India, and Turkey.
-              </span>
+              JOSGLOBAL Sarl delivers tailored and dependable sourcing solutions
+              for businesses, leveraging a strong network of trusted suppliers <span style={{ fontWeight: "bold" }}> across the EU, China, Dubai, India, and Turkey. </span>
               We offer a wide selection of high-quality products at competitive
               prices, along with expert branding support to strengthen market
               positioning.

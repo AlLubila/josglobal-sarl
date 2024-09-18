@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { FaSearch, FaUserCircle } from 'react-icons/fa';
 
@@ -10,7 +11,7 @@ export default function AdminHeader() {
         {/* Logo or Title */}
         <div className="text-xl font-bold">
           <Link href='/'>
-          LOGO
+          <Image src='/logo1.png' alt="website's logo" width={200} height={200}/>
           </Link>
         </div>
         {/* User Avatar/Settings */}
