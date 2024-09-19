@@ -39,10 +39,10 @@ export default function Home() {
       {/* SEPARATION BAR */}
       <div className='bar'></div>
       <ContactForm />
+     </div>
      <footer>
      <Footer/>
      </footer>
-     </div>
     </>
   );
 }

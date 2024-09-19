@@ -1,22 +1,204 @@
-.container{
+/* FOOTER CONTAINER */
+.footer {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: flex-start;
-    padding-bottom: 20px;
+    align-items: center;
+    background-color: #0d1b2a;
+    padding: 40px 20px;
+    color: white;
+    text-align: center;
 }
 
-.container h1{
-    font-size: 30px;
-    font-weight: bold;
+/* LOGO SECTION */
+.logoSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-.container p{
+.logoSection p {
     margin-top: 10px;
-}
-.bar{
-    width: 100%;
-    height: 2.5px;
-    background-color: white;
-    margin-top: 80px;
+    font-size: 14px;
 }
 
+/* LINKS SECTION */
+.linksSection {
+    margin: 20px 0;
+}
+
+.linksList {  /* Added a local class for ul */
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.linkItem {  /* Added a local class for li */
+    margin-bottom: 10px;
+}
+
+.linkAnchor {  /* Added a local class for a */
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.linkAnchor:hover {
+    text-decoration: underline;
+}
+
+/* SUBSCRIPTION SECTION */
+.subscriptionSection {
+    margin: 20px 0;
+    width: 100%;
+    max-width: 400px;
+}
+
+.subscriptionSection p {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.subscriptionForm {
+    display: flex;
+    gap: 10px;
+    flex-direction: column; /* Stack input and button vertically on small screens */
+}
+
+.subscriptionForm input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;  /* Full width for small screens */
+}
+
+.subscriptionForm input::placeholder {
+    color: #ccc;
+}
+
+.subscriptionForm button {
+    padding: 10px;
+    background-color: #1f6f8b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;  /* Full width for small screens */
+}
+
+.subscriptionForm button:hover {
+    background-color: #17707c;
+}
+
+/* SOCIAL MEDIA SECTION */
+.socialMediaSection {
+    margin-top: 20px;
+}
+
+.socialMediaSection p {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.icons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.icons a {
+    color: white;
+    font-size: 30px;
+}
+
+.icon:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+/* RESPONSIVENESS */
+
+/* Larger screens - Desktop and larger tablets */
+@media (min-width: 768px) {
+    .footer {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 40px 80px;
+        align-items: flex-start;
+    }
+
+    .logoSection {
+        align-items: flex-start;
+    }
+
+    .linksSection {
+        margin: 0;
+    }
+
+    .linksList {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .subscriptionForm {
+        flex-direction: row; /* Input and button side-by-side on larger screens */
+    }
+
+    .subscriptionForm input,
+    .subscriptionForm button {
+        width: auto; /* Fit content */
+    }
+
+    .socialMediaSection {
+        align-items: flex-start;
+        margin-top: 0;
+    }
+}
+
+/* Medium-sized devices - Tablets */
+@media (min-width: 480px) and (max-width: 767px) {
+    .footer {
+        padding: 40px 40px;
+    }
+
+    .linksList {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .subscriptionForm {
+        flex-direction: row;
+    }
+
+    .subscriptionForm input,
+    .subscriptionForm button {
+        width: 100%;
+    }
+}
+
+/* Small screens - Phones */
+@media (max-width: 480px) {
+    .footer {
+        padding: 20px;
+    }
+
+    .linksList {
+        align-items: center;
+    }
+
+    .subscriptionForm {
+        flex-direction: column; /* Stack input and button vertically */
+        width: 100%;
+    }
+
+    .subscriptionForm input,
+    .subscriptionForm button {
+        width: 100%; /* Full width for both input and button */
+    }
+}
