@@ -1,7 +1,7 @@
 /* FOOTER CONTAINER */
 .footer {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Default to column for small screens */
     justify-content: space-between;
     align-items: center;
     background-color: #0d1b2a;
@@ -29,19 +29,19 @@
     margin: 20px 0;
 }
 
-.linksList {  /* Added a local class for ul */
+.linksList {
     list-style: none;
     padding: 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Default to column */
     gap: 10px;
 }
 
-.linkItem {  /* Added a local class for li */
+.linkItem {
     margin-bottom: 10px;
 }
 
-.linkAnchor {  /* Added a local class for a */
+.linkAnchor {
     color: white;
     text-decoration: none;
     font-size: 16px;
@@ -74,7 +74,8 @@
     border: none;
     border-radius: 5px;
     font-size: 16px;
-    width: 100%;  /* Full width for small screens */
+    width: 100%;  
+    color: black;
 }
 
 .subscriptionForm input::placeholder {
@@ -89,7 +90,7 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    width: 100%;  /* Full width for small screens */
+    width: 100%;  
 }
 
 .subscriptionForm button:hover {
@@ -128,7 +129,7 @@
 /* Larger screens - Desktop and larger tablets */
 @media (min-width: 768px) {
     .footer {
-        flex-direction: row;
+        flex-direction: row; /* Switch to row layout */
         justify-content: space-between;
         padding: 40px 80px;
         align-items: flex-start;
@@ -143,27 +144,33 @@
     }
 
     .linksList {
-        flex-direction: row;
+        flex-direction: row; /* Row layout for links */
         gap: 20px;
     }
 
     .subscriptionForm {
-        flex-direction: row; /* Input and button side-by-side on larger screens */
+        flex-direction: row; 
     }
 
     .subscriptionForm input,
     .subscriptionForm button {
-        width: auto; /* Fit content */
+        width: auto; 
     }
 
     .socialMediaSection {
         align-items: flex-start;
         margin-top: 0;
     }
+
+    .developerName {
+        margin-top: 20px; /* Adding margin for the developer's name */
+        font-size: 14px; /* Smaller font size for developer's name */
+        color: #ccc; /* Lighter color for contrast */
+    }
 }
 
 /* Medium-sized devices - Tablets */
-@media (min-width: 480px) and (max-width: 767px) {
+@media (min-width: 480px) and (max-width: 850px) {
     .footer {
         padding: 40px 40px;
     }
@@ -200,6 +207,13 @@
 
     .subscriptionForm input,
     .subscriptionForm button {
-        width: 100%; /* Full width for both input and button */
+        width: 100%; 
+    }
+}
+
+/* Enhanced spacing for screens between 771px and 1328px */
+@media (min-width: 771px) and (max-width: 1328px) {
+    .footer {
+        gap: 30px; /* Increased spacing between elements */
     }
 }

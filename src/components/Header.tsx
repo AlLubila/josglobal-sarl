@@ -49,7 +49,7 @@ export default function Header() {
     <div className={styles.overlay}>
       <div className={styles.container}>
         <Link href='/' className={styles.logo}>
-        <Image src='/logo1.png' alt="website's logo" width={250} height={250}/>
+        <Image src='/logo1.png' priority alt="website's logo" width={250} height={250} style={{ width: 'auto', height: 'auto' }}/>
         </Link>
 
         {/* Hamburger Icon */}

@@ -76,7 +76,7 @@
 
 /***************** RESPONSIVE STYLE **************/
 
-@media (max-width:821px) {
+@media (max-width:970px) {
     .inputContainer{
         width: 100%;
     }

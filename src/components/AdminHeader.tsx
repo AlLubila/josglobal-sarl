@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaSearch, FaUserCircle } from 'react-icons/fa';
+import { FaUserCircle } from 'react-icons/fa';
 
 export default function AdminHeader() {
   return (
@@ -11,7 +11,14 @@ export default function AdminHeader() {
         {/* Logo or Title */}
         <div className="text-xl font-bold">
           <Link href='/'>
-          <Image src='/logo1.png' alt="website's logo" width={200} height={200}/>
+            <Image 
+              src='/logo1.png' 
+              alt="website's logo" 
+              width={150} 
+              height={150} 
+              priority // Add this attribute to prioritize the image
+              style={{ width: 'auto', height: 'auto' }} 
+            />
           </Link>
         </div>
         {/* User Avatar/Settings */}
