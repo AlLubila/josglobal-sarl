@@ -2,3 +2,21 @@
     width: 90%;
     margin: 80px auto 0;
 }
+
+.fade-section {
+    opacity: 0; /* Hide initially */
+    will-change: opacity, transform; /* Optimize for transforms */
+    transform-style: preserve-3d; /* Enable 3D space */
+    perspective: 1000px; /* Add perspective for 3D depth */
+  }
+  
+  .hero-section, .about-section, .service-section, .testimony-section, .blog-section, .contact-section {
+    will-change: transform, opacity; /* Optimize for performance */
+  }
+  
+  .bar {
+    height: 2px;
+    background-color: #ccc;
+    margin: 20px 0;
+  }
+  
