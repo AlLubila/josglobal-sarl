@@ -68,9 +68,10 @@
   transition: width 0.3s ease;
 }
 
-.menu a:hover::after {
+.menu a:not(.logoLink):hover::after {
   width: 100%;
 }
+
 
 .menu a:hover {
   color: rgb(141, 141, 241); 
@@ -93,9 +94,33 @@
   display: none;
 }
 
-/********************* Responsive styles ****************/
+.hideLogoMobile {
+  display: block;
+}
 
-@media (max-width: 790px) {
+.mobileLogo {
+  display: none;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/********************* Responsive styles ****************/
+@media (max-width: 860px) {
+  .hideLogoMobile {
+    display: none; /* Hide the main logo at smaller screen widths */
+  }
+
+  .mobileLogo {
+    display: flex;
+  }
+
+  .showLogo {
+    display: flex; /* Display the logo inside the menu when open */
+  }
+}
+
+
+@media (max-width: 860px) {
   .menu {
     position: absolute;
     top: 80px;
