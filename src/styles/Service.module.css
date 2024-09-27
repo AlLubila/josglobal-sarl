@@ -73,12 +73,35 @@
 .card {
     position: relative;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.1);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 250px;
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
     overflow: hidden;
     text-align: center;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.car{
+    background-image: url('/car.jpg');
+}
+
+.clothes{
+    background-image: url('/clothes.jpg');
+}   
+
+.construction{
+    background-image: url('/construction.jpg');
+}
+
+.electronics{
+    background-image: url('/electronics.jpg');
+}
+
+.agriculture{
+    background-image: url('/agriculture.jpg');
 }
 
 .card:hover {

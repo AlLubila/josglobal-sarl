@@ -5,6 +5,7 @@ import styles from '@/styles/Service.module.css';
 import { FaCar, FaTshirt, FaTools, FaMobileAlt, FaTractor } from 'react-icons/fa';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import CardSection from '@/components/section/homepage/CardSection';
 
 // Register the ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -97,50 +98,7 @@ export default function Service() {
       </section>
 
       {/* Card section */}
-      <section className={styles.cardsSection}>
-        <h2>Service Offerings</h2>
-        <div className={styles.cardsContainer}>
-          <div className={styles.card}>
-            <FaCar className={styles.cardIcon} />
-            <h3>Used Luxury Brand Cars and Trucks</h3>
-            <div className={styles.cardHoverContent}>
-              <p>Premium used vehicles with rigorous inspection.</p>
-            </div>
-          </div>
-
-          <div className={styles.card}>
-            <FaTshirt className={styles.cardIcon} />
-            <h3>Wholesale Clothing, Shoes, and Accessories</h3>
-            <div className={styles.cardHoverContent}>
-              <p>Apparel, shoes, and accessories for all categories.</p>
-            </div>
-          </div>
-
-          <div className={styles.card}>
-            <FaTools className={styles.cardIcon} />
-            <h3>Building Materials</h3>
-            <div className={styles.cardHoverContent}>
-              <p>Essential materials for construction and renovation.</p>
-            </div>
-          </div>
-
-          <div className={styles.card}>
-            <FaMobileAlt className={styles.cardIcon} />
-            <h3>Electronics Products</h3>
-            <div className={styles.cardHoverContent}>
-              <p>Phones, laptops, headphones, chargers, cables, and TVs.</p>
-            </div>
-          </div>
-
-          <div className={styles.card}>
-            <FaTractor className={styles.cardIcon} />
-            <h3>Machinery for Small Industries</h3>
-            <div className={styles.cardHoverContent}>
-              <p>Equipment for agriculture and building sectors.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+    <CardSection/>
     </div>
   );
 }

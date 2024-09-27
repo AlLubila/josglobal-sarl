@@ -17,6 +17,7 @@ import Footer from '@/components/Footer';
 import { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import CardSection from '@/components/section/homepage/CardSection';
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -167,7 +168,7 @@ export default function Home() {
         </div>
 
         <div className="service-section fade-section">
-          <ServiceSection />
+          <CardSection/>
         </div>
 
         <div className="bar"></div>
