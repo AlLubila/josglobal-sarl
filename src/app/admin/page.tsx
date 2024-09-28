@@ -13,16 +13,22 @@ export default function AdminLogin() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const router = useRouter();
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (loginAdmin(email, password)) {
-      // Set the admin token in the cookie
-      Cookies.set('admin_token', 'true', { expires: 1 });
-      router.push('/admin/dashboard');  // Redirect to admin dashboard
-    } else {
-      setError('Invalid email or password');
+    console.log('Attempting login with:', email, password);
+    try {
+      const isLoggedIn = await loginAdmin(email, password);
+      if (isLoggedIn) {
+        console.log('Login successful');
+        Cookies.set("admin_token", "true", { expires: 1 });
+        router.push("/admin/dashboard");
+      } else {
+        console.log('Login failed');
+        setError("Invalid email or password");
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      setError("An error occurred during login. Please try again.");
     }
   };
 

@@ -7,11 +7,27 @@ import Image from 'next/image';
 
 export default function Footer() {
     const [email, setEmail] = useState('');
-
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        console.log("Subscribed with email: ", email);
-        setEmail('');
+    
+    const handleSubmit = async (e: React.FormEvent) => {
+      e.preventDefault();
+      try {
+        const response = await fetch('/api/newsletter/subscribe', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email }),
+        });
+        if (response.ok) {
+          alert('Successfully subscribed to the newsletter!');
+          setEmail('');
+        } else {
+          throw new Error('Failed to subscribe');
+        }
+      } catch (error) {
+        console.error('Error subscribing to newsletter:', error);
+        alert('Failed to subscribe. Please try again.');
+      }
     };
 
     return (
