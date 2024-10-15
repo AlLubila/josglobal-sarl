@@ -1,16 +1,13 @@
-import React, { useEffect } from 'react'
-import styles from '@/styles/section/homepage/CardSection.module.css'
+import React, { useEffect } from 'react';
+import styles from '@/styles/section/homepage/CardSection.module.css';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-
-
 export default function CardSection() {
-
     useEffect(() => {
-        // Ensure that the DOM elements are available before animating
+        // S'assurer que les éléments DOM sont disponibles avant d'animer
         const splitSections = document.querySelectorAll(`.${styles.splitSection}`);
         const cards = document.querySelectorAll(`.${styles.card}`);
         const cardsSection = document.querySelector(`.${styles.cardsSection}`);
@@ -31,16 +28,16 @@ export default function CardSection() {
                   trigger: section,
                   start: 'top 80%',
                   toggleActions: 'play none none none',
-                  once: true, // Animation plays only once
+                  once: true, // L'animation ne joue qu'une fois
                 },
               }
             );
           });
         } else {
-          console.warn('No split sections found');
+          console.warn('Aucune section fractionnée trouvée');
         }
     
-        // Ensure cards and the card section exist before animating
+        // S'assurer que les cartes et la section de cartes existent avant d'animer
         if (cardsSection && cards.length > 0) {
           gsap.fromTo(
             cards,
@@ -56,53 +53,51 @@ export default function CardSection() {
                 trigger: cardsSection,
                 start: 'top 80%',
                 toggleActions: 'play none none none',
-                once: true, // Animation plays only once
+                once: true, // L'animation ne joue qu'une fois
               },
             }
           );
         } else {
-          console.warn('No cards or card section found');
+          console.warn('Aucune carte ou section de cartes trouvée');
         }
       }, []); 
 
   return (
     <div>
-            <section className={styles.cardsSection}>
-        <h2>Service Offerings</h2>
+      <section className={styles.cardsSection}>
+        <h2>Offres de services</h2>
         <div className={styles.cardsContainer}>
-        <div className={`${styles.card} ${styles.car}`}>
-
+          <div className={`${styles.card} ${styles.car}`}>
             <div className={styles.cardHoverContent}>
-              <p>Premium used vehicles with rigorous inspection.</p>
+              <p>Véhicules d'occasion premium avec inspection rigoureuse.</p>
             </div>
           </div>
 
           <div className={`${styles.card} ${styles.clothes}`}>
-
             <div className={styles.cardHoverContent}>
-              <p>Apparel, shoes, and accessories for all categories.</p>
+              <p>Vêtements, chaussures et accessoires pour toutes les catégories.</p>
             </div>
           </div>
 
           <div className={`${styles.card} ${styles.construction}`}>
             <div className={styles.cardHoverContent}>
-              <p>Essential materials for construction and renovation.</p>
+              <p>Matériaux essentiels pour la construction et la rénovation.</p>
             </div>
           </div>
 
           <div className={`${styles.card} ${styles.electronics}`}>
             <div className={styles.cardHoverContent}>
-              <p>Phones, laptops, headphones, chargers, cables, and TVs.</p>
+              <p>Téléphones, ordinateurs portables, écouteurs, chargeurs, câbles et téléviseurs.</p>
             </div>
           </div>
 
           <div className={`${styles.card} ${styles.agriculture}`}>
             <div className={styles.cardHoverContent}>
-              <p>Equipment for agriculture and building sectors.</p>
+              <p>Équipement pour les secteurs de l'agriculture et du bâtiment.</p>
             </div>
           </div>
         </div>
       </section>
     </div>
-  )
+  );
 }
