@@ -7,12 +7,12 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import CardSection from '@/components/section/homepage/CardSection';
 
-// Register the ScrollTrigger plugin
+// Enregistrer le plugin ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Service() {
   useEffect(() => {
-    // Ensure that the DOM elements are available before animating
+    // Assurez-vous que les éléments DOM sont disponibles avant d'animer
     const splitSections = document.querySelectorAll(`.${styles.splitSection}`);
     const cards = document.querySelectorAll(`.${styles.card}`);
     const cardsSection = document.querySelector(`.${styles.cardsSection}`);
@@ -33,16 +33,16 @@ export default function Service() {
               trigger: section,
               start: 'top 80%',
               toggleActions: 'play none none none',
-              once: true, // Animation plays only once
+              once: true, // L'animation ne joue qu'une seule fois
             },
           }
         );
       });
     } else {
-      console.warn('No split sections found');
+      console.warn('Aucune section divisée trouvée');
     }
 
-    // Ensure cards and the card section exist before animating
+    // Assurez-vous que les cartes et la section des cartes existent avant d'animer
     if (cardsSection && cards.length > 0) {
       gsap.fromTo(
         cards,
@@ -58,47 +58,49 @@ export default function Service() {
             trigger: cardsSection,
             start: 'top 80%',
             toggleActions: 'play none none none',
-            once: true, // Animation plays only once
+            once: true, // L'animation ne joue qu'une seule fois
           },
         }
       );
     } else {
-      console.warn('No cards or card section found');
+      console.warn('Aucune carte ou section de carte trouvée');
     }
-  }, []); // Run effect once, after component mounts
+  }, []); // Exécute l'effet une fois, après le montage du composant
 
   return (
     <div className={styles.container}>
-      {/* First split section */}
+      {/* Première section divisée */}
       <section className={styles.splitSection}>
         <div className={styles.textContent}>
-          <h2 className={styles.title}>Supply Chain and Network</h2>
+          <h2 className={styles.title}>Chaîne d'approvisionnement et réseau</h2>
           <p>
-            Our robust supply chain, partnered with industry-leading logistics companies like{' '}
-            <span style={{ fontWeight: 'bold' }}>MAERSK</span>, ensures seamless delivery and optimal
-            efficiency. We manage the entire logistics process, guaranteeing timely and secure
-            transport of goods.
+            Notre chaîne d'approvisionnement robuste, en partenariat avec des entreprises de logistique
+            de premier plan comme{' '}
+            <span style={{ fontWeight: 'bold' }}>MAERSK</span>, assure une livraison fluide et une
+            efficacité optimale. Nous gérons l'ensemble du processus logistique, garantissant un
+            transport des biens à temps et en toute sécurité.
           </p>
         </div>
         <div className={`${styles.imageContent} ${styles.supplyChainImg}`}></div>
       </section>
 
-      {/* Second split section */}
+      {/* Deuxième section divisée */}
       <section className={styles.splitSection}>
         <div className={`${styles.imageContent} ${styles.customerSupportImg}`}></div>
         <div className={styles.textContent}>
-          <h2 className={styles.title}>Customer Support and Services</h2>
+          <h2 className={styles.title}>Support client et services</h2>
           <p>
-            We focus on building lasting relationships and delivering exceptional value. Our
-            dedicated team provides personalized solutions, customization options, and ongoing
-            post-purchase support. Additional services include branding support, logistics
-            coordination, and market insights.
+            Nous nous concentrons sur la construction de relations durables et la fourniture d'une
+            valeur exceptionnelle. Notre équipe dédiée propose des solutions personnalisées,
+            des options de personnalisation et un support continu après l'achat. Les services
+            supplémentaires incluent le soutien à la marque, la coordination logistique et les
+            informations sur le marché.
           </p>
         </div>
       </section>
 
-      {/* Card section */}
-    <CardSection/>
+      {/* Section de cartes */}
+      <CardSection/>
     </div>
   );
 }
