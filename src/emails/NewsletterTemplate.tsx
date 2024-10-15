@@ -6,7 +6,7 @@ const NewsletterTemplate = ({
   content: string;
 }) => {
   return (
-    <Html lang="en">
+    <Html lang="fr"> {/* Change language to French */}
       <Head>
         <style>
           {`
@@ -53,16 +53,16 @@ const NewsletterTemplate = ({
       </Head>
       <Body>
         <Container className="container">
-          <Heading as="h1">Josglobal Sarl Newsletter</Heading>
-          <Text>Dear Subscriber,</Text>
-          <Text>Here's the latest news from Josglobal Sarl:</Text>
+          <Heading as="h1">Newsletter de Josglobal Sarl</Heading> {/* Newsletter title */}
+          <Text>Cher Abonné,</Text> {/* Dear Subscriber */}
+          <Text>Voici les dernières nouvelles de Josglobal Sarl :</Text> {/* Latest news message */}
 
           <Section className="content">
             <div dangerouslySetInnerHTML={{ __html: content }} />
           </Section>
 
           <Text className="footer">
-            Thank you for subscribing to our newsletter. If you wish to unsubscribe, please click here.
+            Merci de vous être abonné à notre newsletter. Si vous souhaitez vous désinscrire, veuillez cliquer ici. {/* Unsubscribe message */}
           </Text>
         </Container>
       </Body>
