@@ -5,7 +5,7 @@ export default function page() {
     redirect('/admin/dashboard/content-management')
   return (
     <div>
-      <h1>Welcome to the admin dashboard</h1>
+      <h1>Bienvenue sur le tableau de bord d'administration</h1>
     </div>
   )
 }
