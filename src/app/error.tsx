@@ -20,7 +20,7 @@ export default function Error() {
             Internal Server Error.
           </p>
           <p className="mb-4 text-lg font-light text-gray-500 dark:text-gray-400">
-            We are already working to solve the problem{" "}
+            Nous travaillons déjà pour résoudre le problème{" "}
           </p>
         </div>
       </div>
