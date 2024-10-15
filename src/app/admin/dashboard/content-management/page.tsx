@@ -16,11 +16,11 @@ async function fetchBlogs(): Promise<Blog[]> {
   try {
     const res = await fetch('/api/blogs', { cache: 'no-store' });
     if (!res.ok) {
-      throw new Error('Failed to fetch blogs');
+      throw new Error('Échec du chargement des blogs');
     }
     return await res.json();
   } catch (error) {
-    console.error('Error fetching blogs:', error);
+    console.error('Erreur lors du chargement des blogs:', error);
     return [];
   }
 }
@@ -32,7 +32,7 @@ async function deleteBlog(id: string): Promise<boolean> {
     });
     return res.ok;
   } catch (error) {
-    console.error('Error deleting blog:', error);
+    console.error('Erreur lors de la suppression du blog:', error);
     return false;
   }
 }
@@ -93,21 +93,21 @@ export default function ContentManagement() {
       const result = await response.json();
 
       if (response.ok) {
-        setMessage(editBlogId ? 'Blog updated successfully!' : 'Blog created successfully!');
+        setMessage(editBlogId ? 'Blog mis à jour avec succès!' : 'Blog créé avec succès!');
         setFormData({ title: '', description: '', content: '' });
         setDescriptionLength(0);
         setEditBlogId(null);
         const fetchedBlogs = await fetchBlogs();
         setBlogs(fetchedBlogs);
       } else {
-        setMessage(result.message || 'Something went wrong.');
+        setMessage(result.message || 'Quelque chose s\'est mal passé.');
       }
     } catch (error) {
-      setMessage('Error submitting the form.');
+      setMessage('Erreur lors de la soumission du formulaire.');
     }
     setIsSubmitting(false);
 
-    // Hide message after 3 seconds
+    // Masquer le message après 3 secondes
     setTimeout(() => setMessage(''), 3000);
   };
 
@@ -138,9 +138,9 @@ export default function ContentManagement() {
       const success = await deleteBlog(blogToDelete);
       if (success) {
         setBlogs(blogs.filter((blog) => blog._id !== blogToDelete));
-        setMessage('Blog deleted successfully!');
+        setMessage('Blog supprimé avec succès!');
       } else {
-        setMessage('Error deleting blog.');
+        setMessage('Erreur lors de la suppression du blog.');
       }
       setShowDeleteModal(false);
       setBlogToDelete(null);
@@ -149,18 +149,18 @@ export default function ContentManagement() {
 
   return (
     <>
-      <h1 className="text-3xl font-bold my-6 text-center text-white">Content Management</h1>
+      <h1 className="text-3xl font-bold my-6 text-center text-white">Gestion de contenu</h1>
       <div className="min-h-screen flex flex-col items-center bg-[#021526] text-white py-10 px-4">
-        {/* Create or Update Blog Section */}
+        {/* Section Créer ou Mettre à jour un blog */}
         <section className="w-full max-w-2xl bg-gray-800 p-8 rounded-lg shadow-lg mb-10">
-          <h2 className="text-2xl font-bold mb-4 text-center">{editBlogId ? 'Edit Blog' : 'Create Blog'}</h2>
+          <h2 className="text-2xl font-bold mb-4 text-center">{editBlogId ? 'Modifier le blog' : 'Créer un blog'}</h2>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="title" className="block text-sm font-semibold mb-2">Title</label>
+              <label htmlFor="title" className="block text-sm font-semibold mb-2">Titre</label>
               <input
                 id="title"
                 type="text"
-                placeholder="Enter the title"
+                placeholder="Entrez le titre"
                 value={formData.title}
                 onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                 className="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-blue-500 focus:ring-2 focus:outline-none"
@@ -173,23 +173,23 @@ export default function ContentManagement() {
               <textarea
                 id="description"
                 rows={5}
-                placeholder="Enter the description (Max 200 characters)"
+                placeholder="Entrez la description (Max 200 caractères)"
                 value={formData.description}
                 onChange={handleDescriptionChange}
                 className="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-blue-500 focus:ring-2 focus:outline-none resize-none"
                 required
               />
               <div className="text-sm text-gray-400 mt-1 text-right">
-                {descriptionLength}/{DESCRIPTION_MAX_LENGTH} characters
+                {descriptionLength}/{DESCRIPTION_MAX_LENGTH} caractères
               </div>
             </div>
 
             <div>
-              <label htmlFor="content" className="block text-sm font-semibold mb-2">Content</label>
+              <label htmlFor="content" className="block text-sm font-semibold mb-2">Contenu</label>
               <textarea
                 id="content"
                 rows={8}
-                placeholder="Enter the content"
+                placeholder="Entrez le contenu"
                 value={formData.content}
                 onChange={(e) => setFormData({ ...formData, content: e.target.value })}
                 className="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-blue-500 focus:ring-2 focus:outline-none"
@@ -203,22 +203,22 @@ export default function ContentManagement() {
               disabled={isSubmitting}
               className="w-full bg-blue-600 hover:bg-blue-700 focus:ring focus:ring-blue-500 text-white py-3 rounded-lg font-bold transition duration-300"
             >
-              {isSubmitting ? 'Submitting...' : editBlogId ? 'Update Post' : 'Create Post'}
+              {isSubmitting ? 'Envoi en cours...' : editBlogId ? 'Mettre à jour l\'article' : 'Créer l\'article'}
             </button>
             {message && <p className="text-center mt-4 text-yellow-400">{message}</p>}
           </form>
         </section>
 
-        {/* Blog Post List for Edit/Delete */}
+        {/* Liste des articles de blog pour modifier/supprimer */}
         <section className="w-full max-w-4xl bg-gray-800 p-8 rounded-lg shadow-lg">
-          <h2 className="text-xl font-bold mb-6 text-center text-white">Existing Posts</h2>
+          <h2 className="text-xl font-bold mb-6 text-center text-white">Articles existants</h2>
           <div className="overflow-x-auto">
             {blogs.length > 0 ? (
               <table className="table-auto w-full text-left text-gray-300">
                 <thead className="bg-gray-700 text-gray-400">
                   <tr>
                     <th className="px-4 py-3">#</th>
-                    <th className="px-4 py-3">Title</th>
+                    <th className="px-4 py-3">Titre</th>
                     <th className="px-4 py-3">Description</th>
                     <th className="px-4 py-3">Actions</th>
                   </tr>
@@ -248,30 +248,30 @@ export default function ContentManagement() {
                 </tbody>
               </table>
             ) : (
-              <p className="text-center text-gray-400">No posts available.</p>
+              <p className="text-center text-gray-400">Aucun article disponible.</p>
             )}
           </div>
         </section>
       </div>
 
-      {/* Delete Confirmation Modal */}
+      {/* Modal de confirmation de suppression */}
       {showDeleteModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-lg shadow-lg">
-            <h3 className="text-xl font-bold mb-4 text-center">Confirm Delete</h3>
-            <p className="text-gray-600 text-center mb-6">Are you sure you want to delete this blog post?</p>
+            <h3 className="text-xl font-bold mb-4 text-center">Confirmer la suppression</h3>
+            <p className="text-gray-600 text-center mb-6">Êtes-vous sûr de vouloir supprimer cet article de blog?</p>
             <div className="flex justify-around">
               <button
                 onClick={confirmDelete}
                 className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg transition"
               >
-                Confirm
+                Confirmer
               </button>
               <button
                 onClick={() => setShowDeleteModal(false)}
                 className="bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded-lg transition"
               >
-                Cancel
+                Annuler
               </button>
             </div>
           </div>
