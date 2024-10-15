@@ -12,7 +12,7 @@ const EmailTemplate = ({
   message: string;
 }) => {
   return (
-    <Html lang="en">
+    <Html lang="fr"> {/* Change language to French */}
       <Head>
         <style>
           {`
@@ -71,17 +71,17 @@ const EmailTemplate = ({
       </Head>
       <Body>
         <Container className="container">
-          <Heading as="h1">New Form Submission</Heading>
-          <Text>Hello Admin,</Text>
-          <Text>We have received a new form submission with the following details:</Text>
+          <Heading as="h1">Nouvelle Soumission de Formulaire</Heading> {/* New Form Submission */}
+          <Text>Bonjour Administrateur,</Text> {/* Hello Admin */}
+          <Text>Nous avons reçu une nouvelle soumission de formulaire avec les détails suivants :</Text> {/* New form submission message */}
 
           <Section>
             <Text>
-              <span className="label">Name:</span>
+              <span className="label">Nom :</span>
               <span className="value"> {name}</span>
             </Text>
             <Text>
-              <span className="label">Email:</span>
+              <span className="label">Email :</span>
               <span className="value"> {email}</span>
             </Text>
           </Section>
