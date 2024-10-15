@@ -63,7 +63,7 @@ export default function SinglePost() {
 
   if (error) return <div><ErrorPage/></div>;
 
-  if (!blog) return <div className={styles.notFound}>Blog not found</div>;
+  if (!blog) return <div className={styles.notFound}>Article introuvable</div>;
 
   const sanitizedContent = DOMPurify.sanitize(blog.content, {
     ALLOWED_TAGS: ['b', 'i', 'em', 'strong', 'a', 'p', 'ul', 'ol', 'li'],
