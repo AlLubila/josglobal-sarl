@@ -19,46 +19,46 @@ export default function Footer() {
           body: JSON.stringify({ email }),
         });
         if (response.ok) {
-          alert('Successfully subscribed to the newsletter!');
+          alert('Inscription réussie à la newsletter !');
           setEmail('');
         } else {
-          throw new Error('Failed to subscribe');
+          throw new Error('Échec de l\'inscription');
         }
       } catch (error) {
-        console.error('Error subscribing to newsletter:', error);
-        alert('Failed to subscribe. Please try again.');
+        console.error('Erreur lors de l\'inscription à la newsletter :', error);
+        alert('Échec de l\'inscription. Veuillez réessayer.');
       }
     };
 
     return (
         <div className={styles.footer}>
             <div className={styles.logoSection}>
-                <Image src='/logo1.png' priority alt="website's logo" width={120} height={120} style={{ width: 'auto', height: 'auto' }} />
-                <p>©2024 All rights reserved</p>
+                <Image src='/logo1.png' priority alt="logo du site" width={120} height={120} style={{ width: 'auto', height: 'auto' }} />
+                <p>©2024 Tous droits réservés</p>
             </div>
 
             <div className={styles.linksSection}>
                 <ul className={styles.linksList}>
-                    <li className={styles.linkItem}><Link href="/privacy-policy" className={styles.linkAnchor}>Privacy Policy</Link></li>
+                    <li className={styles.linkItem}><Link href="/privacy-policy" className={styles.linkAnchor}>Politique de confidentialité</Link></li>
                 </ul>
             </div>
 
             <div className={styles.subscriptionSection}>
-                <p>Subscribe to our newsletter:</p>
+                <p>Abonnez-vous à notre newsletter :</p>
                 <form onSubmit={handleSubmit} className={styles.subscriptionForm}>
                     <input
                         type="email"
-                        placeholder="Enter your email"
+                        placeholder="Entrez votre email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
                     />
-                    <button type="submit">Subscribe</button>
+                    <button type="submit">S'abonner</button>
                 </form>
             </div>
 
             <div className={styles.socialMediaSection}>
-                <p>Follow us:</p>
+                <p>Suivez-nous :</p>
                 <div className={styles.icons}>
                     <Link href="https://www.facebook.com" aria-label="Facebook">
                         <FaFacebookF className={styles.icon} />
@@ -72,7 +72,7 @@ export default function Footer() {
                 </div>
             </div>
 
-            <p className={styles.developerName}>Developed by Albi Lubila</p>
+            <p className={styles.developerName}>Développé par Albi Lubila</p>
         </div>
     );
 }
