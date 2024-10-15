@@ -2,10 +2,10 @@
 
 import React, { useEffect, useState } from "react";
 
-// STYLES IMPORTS
+// IMPORTS DE STYLES
 import styles from "../styles/Header.module.css";
 
-// NEXT/ IMPORTS
+// IMPORTS NEXT/
 import Link from "next/link";
 
 import Cookies from "js-cookie";
@@ -17,42 +17,42 @@ export default function Header() {
 
   const links = [
     {
-      title: "Home",
+      title: "Accueil", // Home
       href: "/",
     },
     {
-      title: "About",
+      title: "À propos", // About
       href: "/about",
     },
     {
-      title: "Service",
+      title: "Services", // Service
       href: "/service",
     },
     {
-      title: "Blog",
+      title: "Blog", // Blog
       href: "/blog",
     },
     {
-      title: "Contact",
+      title: "Contact", // Contact
       href: "/contact",
     },
   ];
 
   useEffect(() => {
-    // Check if the admin_token exists in cookies
+    // Vérifier si le admin_token existe dans les cookies
     const token = Cookies.get("admin_token");
-    setIsAdmin(!!token); // If token exists, set isAdmin to true
+    setIsAdmin(!!token); // Si le token existe, définir isAdmin à true
   }, []);
 
   return (
     <div className={styles.overlay}>
       <div className={styles.container}>
-        {/* Only show logo if screen width is more than 767px */}
+        {/* Afficher le logo uniquement si la largeur de l'écran est supérieure à 767px */}
         <Link href="/" className={`${styles.logo} ${styles.hideLogoMobile}`}>
           <Image
             src="/logo1.png"
             priority
-            alt="website's logo"
+            alt="logo du site"
             className={styles.logoImg}
             width={250}
             height={250}
@@ -60,7 +60,7 @@ export default function Header() {
           />
         </Link>
 
-        {/* Hamburger Icon */}
+        {/* Icône de hamburger */}
         <div
           className={styles.hamburger}
           onClick={() => setMenuOpen(!isMenuOpen)}
@@ -70,9 +70,9 @@ export default function Header() {
           <span className={isMenuOpen ? styles.barOpen : ""}></span>
         </div>
 
-        {/* Standard Menu */}
+        {/* Menu standard */}
         <div className={`${styles.menu} ${isMenuOpen ? styles.menuOpen : ""}`}>
-          {/* Show logo inside menu on small screens */}
+          {/* Afficher le logo à l'intérieur du menu sur les petits écrans */}
           <div
             className={`${styles.mobileLogo} ${
               isMenuOpen ? styles.showLogo : ""
@@ -82,7 +82,7 @@ export default function Header() {
               <Image
                 src="/logo1.png"
                 priority
-                alt="website's logo"
+                alt="logo du site"
                 className={styles.logoImg}
                 width={200}
                 height={200}
