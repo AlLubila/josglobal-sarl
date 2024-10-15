@@ -16,17 +16,16 @@ export default function notFound() {
             404
           </h1>
           <p className="mb-4 text-3xl tracking-tight font-bold text-gray-900 md:text-4xl dark:text-white">
-            Page not found.
+            Page introuvable.
           </p>
           <p className="mb-4 text-lg font-light text-gray-500 dark:text-gray-400">
-            Sorry, we can't find that page. You'll find lots to explore on the
-            home page.
+            Désolé, nous ne trouvons pas cette page. Vous trouverez beaucoup de choses à explorer sur la page d'accueil.
           </p>
           <Link
             href="/"
             className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
-            Back to Homepage
+            Retour à la page d'accueil
           </Link>
         </div>
       </div>
