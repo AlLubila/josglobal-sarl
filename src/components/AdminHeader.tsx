@@ -23,7 +23,7 @@ export default function AdminHeader() {
         </div>
         {/* User Avatar/Settings */}
         <div className="flex items-center space-x-4">
-          <div className="text-sm">Welcome, Admin</div>
+          <div className="text-sm">Bienvenue, administrateur</div>
           <FaUserCircle className="text-3xl cursor-pointer" />
         </div>
       </div>
