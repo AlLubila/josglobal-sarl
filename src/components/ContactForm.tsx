@@ -1,20 +1,20 @@
 'use client'
 
-// IMPORT FROM REACT
+// IMPORTATION DE REACT
 import React, { useState, useEffect } from 'react'
 import { sendEmail } from "@/actions"
 
-// IMPORT STYLES
+// IMPORTATION DES STYLES
 import styles from '../styles/Contact.module.css'
 
-// IMPORT ICONS
+// IMPORTATION DES ICÔNES
 import { FaFacebook, FaLinkedin, FaTwitter, FaInstagramSquare } from "react-icons/fa"
 
-// Import React-Toastify
+// Importer React-Toastify
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';  // Import the CSS for react-toastify
+import 'react-toastify/dist/ReactToastify.css';  // Importer le CSS pour react-toastify
 
-// Define the type for the response
+// Définir le type pour la réponse
 interface SendEmailResponse {
   error: string | null;
   success: boolean;
@@ -57,16 +57,16 @@ export default function ContactForm() {
 
   useEffect(() => {
     if (sendEmailState.success) {
-      toast.success("Email sent successfully!", {
-        position: "top-right",  // Use string for position
-        autoClose: 3000,        // Automatically close after 3 seconds
+      toast.success("Email envoyé avec succès !", {
+        position: "top-right",  // Utiliser une chaîne pour la position
+        autoClose: 3000,        // Se ferme automatiquement après 3 secondes
       });
       setFormData(initialFormData);
     }
     if (sendEmailState.error) {
-      toast.error("Error sending email!", {
-        position: "top-right",  // Use string for position
-        autoClose: 3000,        // Automatically close after 3 seconds
+      toast.error("Erreur lors de l'envoi de l'email !", {
+        position: "top-right",  // Utiliser une chaîne pour la position
+        autoClose: 3000,        // Se ferme automatiquement après 3 secondes
       });
     }
   }, [sendEmailState]);
@@ -74,20 +74,20 @@ export default function ContactForm() {
 
   return (
     <div className={styles.container}>
-      {/* CONTACT INFO */}
+      {/* INFOS DE CONTACT */}
       <div className={styles.contactInfos}>
         <div className={styles.phoneInfos}>
-          <h1>CALL US</h1>
+          <h1>APPELEZ-NOUS</h1>
           <p>1 (234) 567-879</p>
         </div>
 
         <div className={styles.addressInfos}>
-          <h1>LOCATION</h1>
-          <p>123 Rock Street. 21 Avenue, City</p>
+          <h1>EMPLACEMENT</h1>
+          <p>123 Rock Street. 21 Avenue, Ville</p>
         </div>
 
         <div className={styles.socialMedia}>
-          <h1>SOCIAL MEDIA</h1>
+          <h1>MÉDIAS SOCIAUX</h1>
           <div className={styles.socialItems}>
             <FaFacebook size={24}/>
             <FaInstagramSquare size={24}/>
@@ -97,13 +97,13 @@ export default function ContactForm() {
         </div>
       </div>
 
-      {/* CONTACT FORM */}
+      {/* FORMULAIRE DE CONTACT */}
       <form className={styles.contactForm} onSubmit={handleSubmit}>
-        <h1>CONTACT US</h1>
+        <h1>CONTACTEZ-NOUS</h1>
         <div className={styles.inputContainer}>
           <input 
             type="text" 
-            placeholder='Enter your name' 
+            placeholder='Entrez votre nom' 
             name='name' 
             value={formData.name} 
             onChange={handleChange} 
@@ -111,7 +111,7 @@ export default function ContactForm() {
           />
           <input 
             type="email" 
-            placeholder='Enter a valid email address' 
+            placeholder='Entrez une adresse e-mail valide' 
             name='email' 
             value={formData.email} 
             onChange={handleChange} 
@@ -119,14 +119,14 @@ export default function ContactForm() {
           />
           <input 
             type="text" 
-            placeholder='Enter the subject' 
+            placeholder='Entrez le sujet' 
             name='subject' 
             value={formData.subject} 
             onChange={handleChange}
             required
           />
           <textarea 
-            placeholder='Enter a message' 
+            placeholder='Entrez un message' 
             rows={7} 
             name='message' 
             value={formData.message} 
@@ -135,14 +135,14 @@ export default function ContactForm() {
           />
         </div>
         <button
-        type="submit"
-        disabled={isSubmitting}
-      >
-        {isSubmitting ? 'Submitting...' : 'Submit'}
-      </button>
+          type="submit"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? 'Envoi en cours...' : 'Soumettre'}
+        </button>
       </form>
 
-      {/* Toast Container */}
+      {/* Conteneur de Toast */}
       <ToastContainer />
     </div>
   )
