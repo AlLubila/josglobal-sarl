@@ -3,7 +3,7 @@
 import '@/styles/globals.css'
 import React from "react";
 
-// Function return a tailwind component for error page
+// Fonction qui retourne un composant tailwind pour la page d'erreur
 export default function ErrorPage() {
   return (
     <>
@@ -15,10 +15,10 @@ export default function ErrorPage() {
             500
           </h1>
           <p className="mb-4 text-3xl tracking-tight font-bold text-gray-900 md:text-4xl dark:text-white">
-            Internal Server Error.
+            Erreur Interne du Serveur.
           </p>
           <p className="mb-4 text-lg font-light text-gray-500 dark:text-gray-400">
-            We are already working to solve the problem{" "}
+            Nous travaillons déjà à résoudre le problème{" "}
           </p>
         </div>
       </div>
