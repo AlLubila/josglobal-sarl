@@ -63,37 +63,38 @@ export default function AboutSection() {
           </div>
         </div>
 
-        <div className={styles.coreValues}>
-          <h1>Valeurs fondamentales</h1>
-          <div className={styles.value}>
-            <Image
-              src="/coreValues.svg"
-              alt="valeurs fondamentales"
-              width={1000}
-              height={1000}
-              className={styles.coreValueImg}
-              priority
-            />
-            {/* IMAGE POUR TABLETTE */}
-            <Image
-              src="/coreValues_tablet.svg"
-              alt="valeurs fondamentales"
-              width={1000}
-              height={1000}
-              className={styles.coreValueImg_tablet}
-              priority
-            />
-            {/* IMAGE POUR MOBILE L */}
-            <Image
-              src="/coreValues_mobile_L.svg"
-              alt="valeurs fondamentales"
-              width={1000}
-              height={1000}
-              className={styles.coreValueImg_mobile_L}
-              priority
-            />
-          </div>
-        </div>
+  {/* <div className={styles.coreValues}>
+       <h1>Valeurs fondamentales</h1>
+       <div className={styles.value}>
+         <Image
+           src="/coreValues.svg"
+           alt="valeurs fondamentales"
+           width={1000}
+           height={1000}
+           className={styles.coreValueImg}
+           priority
+         />
+      
+         <Image
+           src="/coreValues_tablet.svg"
+           alt="valeurs fondamentales"
+           width={1000}
+           height={1000}
+           className={styles.coreValueImg_tablet}
+           priority
+         />
+     
+         <Image
+           src="/coreValues_mobile_L.svg"
+           alt="valeurs fondamentales"
+           width={1000}
+           height={1000}
+           className={styles.coreValueImg_mobile_L}
+           priority
+         />
+       </div>
+     </div> */}
+
       </section>
     </div>
   )
