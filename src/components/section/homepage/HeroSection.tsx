@@ -28,7 +28,7 @@ export default function HeroSection() {
             Kinshasa, nous offrons des solutions B2B de haute qualité pour divers besoins.
           </p>
           <p>Rationalisez votre approvisionnement et élargissez votre portée avec nous.</p>
-          <p>Contactez-nous ou apprenez-en plus dès aujourd'hui !</p>
+          <p>Contactez-nous ou apprenez-en plus dès aujourd&apos;hui !</p>
           <div className={styles.buttons}>
             <button onClick={toContact}>
               Contactez-nous{" "}

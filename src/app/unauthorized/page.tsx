@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useRouter } from 'next/navigation';
 
@@ -16,13 +16,13 @@ export default function Unauthorized() {
       <main className="flex flex-col items-center justify-center flex-grow px-4 text-center">
         <h2 className="text-4xl font-bold mb-4">403 - Unauthorized</h2>
         <p className="text-lg mb-6">
-          Vous n'êtes pas autorisé à voir cette page. Veuillez contacter l'administrateur si vous pensez qu'il s'agit d'une erreur.
+          Vous n&apos;êtes pas autorisé à voir cette page. Veuillez contacter l&apos;administrateur si vous pensez qu&apos;il s&apos;agit d&apos;une erreur.
         </p>
         <button
           onClick={() => router.push('/')}
           className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75"
         >
-          Retourner à la page d'accueil
+          Retourner à la page d&apos;accueil
         </button>
       </main>
 

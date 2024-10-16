@@ -69,7 +69,7 @@ export default function CardSection() {
         <div className={styles.cardsContainer}>
           <div className={`${styles.card} ${styles.car}`}>
             <div className={styles.cardHoverContent}>
-              <p>Véhicules d'occasion premium avec inspection rigoureuse.</p>
+              <p>Véhicules d&apos;occasion premium avec inspection rigoureuse.</p>
             </div>
           </div>
 
@@ -93,7 +93,7 @@ export default function CardSection() {
 
           <div className={`${styles.card} ${styles.agriculture}`}>
             <div className={styles.cardHoverContent}>
-              <p>Équipement pour les secteurs de l'agriculture et du bâtiment.</p>
+              <p>Équipement pour les secteurs de l&apos;agriculture et du bâtiment.</p>
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@ import { FaNewspaper, FaUsers, FaStar, FaCogs, FaChartLine, FaShieldAlt } from '
 export default function Sidebar() {
   return (
     <aside className="bg-gray-800 text-white w-64 hidden sm:flex flex-col h-screen p-6 shadow-lg">
-      <h2 className="text-2xl font-bold mb-8 text-center">Panneau d'administration</h2> {/* Admin Panel */}
+      <h2 className="text-2xl font-bold mb-8 text-center">Panneau d&apos;administration</h2> {/* Admin Panel */}
       <nav>
         <ul className="space-y-6">
           <li>
@@ -36,7 +36,7 @@ export default function Sidebar() {
           </li>
           <li>
             <Link href="/admin/dashboard/privacy-legal" className="flex items-center text-lg hover:text-blue-500">
-              <FaShieldAlt className="mr-3" /> Confidentialité & Légal {/* Privacy & Legal */}
+              <FaShieldAlt className="mr-3" /> Confidentialité &amp; Légal {/* Privacy & Legal */}
             </Link>
           </li>
         </ul>

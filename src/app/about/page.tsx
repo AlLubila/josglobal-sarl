@@ -43,7 +43,7 @@ export default function About() {
                   À Propos de Nous
                 </h2>
                 <p className="font-normal text-xl leading-8 text-gray-300 max-lg:text-center max-w-2xl mx-auto">
-                  JOSGLOBAL Sarl est une entreprise dynamique basée à Kinshasa, en République Démocratique du Congo, spécialisée dans les solutions B2B pour les entreprises de divers secteurs. Grâce à notre emplacement stratégique en Afrique Centrale, nous connectons les entreprises locales et internationales avec des fournisseurs fiables, garantissant l'accès à des produits et services de haute qualité répondant aux divers besoins des entreprises.
+                  JOSGLOBAL Sarl est une entreprise dynamique basée à Kinshasa, en République Démocratique du Congo, spécialisée dans les solutions B2B pour les entreprises de divers secteurs. Grâce à notre emplacement stratégique en Afrique Centrale, nous connectons les entreprises locales et internationales avec des fournisseurs fiables, garantissant l&apos;accès à des produits et services de haute qualité répondant aux divers besoins des entreprises.
                 </p>
               </div>
             </div>
@@ -66,7 +66,7 @@ export default function About() {
                 />
                 <h2 className="font-manrope font-bold text-4xl lg:text-5xl text-white mb-9 max-lg:text-center">Notre Mission</h2>
                 <p className="font-normal text-xl leading-8 text-gray-300 max-lg:text-center max-w-2xl mx-auto">
-                  Notre mission est d'être le principal partenaire d'approvisionnement pour les entreprises en République Démocratique du Congo et au-delà, en fournissant un accès à des produits de haute qualité provenant de fournisseurs mondiaux de confiance. Nous nous engageons à offrir une valeur exceptionnelle à travers des solutions d'approvisionnement efficaces, fiables et éthiques.
+                  Notre mission est d&apos;être le principal partenaire d&apos;approvisionnement pour les entreprises en République Démocratique du Congo et au-delà, en fournissant un accès à des produits de haute qualité provenant de fournisseurs mondiaux de confiance. Nous nous engageons à offrir une valeur exceptionnelle à travers des solutions d&apos;approvisionnement efficaces, fiables et éthiques.
                 </p>
               </div>
             </div>
@@ -92,7 +92,7 @@ export default function About() {
               <div className="flex gap-5">
                 <div className="font-manrope text-2xl font-bold text-indigo-400">240%</div>
                 <div className="flex-1">
-                  <h4 className="text-xl text-white font-semibold mb-2">Croissance de l'Entreprise</h4>
+                  <h4 className="text-xl text-white font-semibold mb-2">Croissance de l&apos;Entreprise</h4>
                   <p className="text-xs text-gray-400 leading-5">Une croissance remarquable grâce à notre innovation continue et à nos efforts pour atteindre de nouveaux sommets de succès.</p>
                 </div>
               </div>
@@ -101,7 +101,7 @@ export default function About() {
               <div className="flex gap-5">
                 <div className="font-manrope text-2xl font-bold text-indigo-400">175+</div>
                 <div className="flex-1">
-                  <h4 className="text-xl text-white font-semibold mb-2">Membres de l'Équipe</h4>
+                  <h4 className="text-xl text-white font-semibold mb-2">Membres de l&apos;Équipe</h4>
                   <p className="text-xs text-gray-400 leading-5">Nos membres talentueux sont la clé de notre réussite.</p>
                 </div>
               </div>
@@ -131,7 +131,7 @@ export default function About() {
                 <div className="relative mb-20">
                   <div className="max-w-max mx-auto lg:max-w-4xl">
                     <p className="text-lg text-gray-400 leading-8 mb-8 text-center">
-                      "Travailler avec JOSGLOBAL a été un véritable atout pour nos besoins en approvisionnement. L'expertise et le dévouement de leur équipe nous ont permis de trouver rapidement et efficacement des fournisseurs fiables."
+                      &quot;Travailler avec JOSGLOBAL a été un véritable atout pour nos besoins en approvisionnement. L&apos;expertise et le dévouement de leur équipe nous ont permis de trouver rapidement et efficacement des fournisseurs fiables.&quot;
                     </p>
                   </div>
                 </div>
@@ -140,7 +140,7 @@ export default function About() {
                 <div className="relative mb-20">
                   <div className="max-w-max mx-auto lg:max-w-4xl">
                     <p className="text-lg text-gray-400 leading-8 mb-8 text-center">
-                      "Le professionnalisme et le soutien de JOSGLOBAL ont dépassé nos attentes. Nous recommandons vivement leurs services à toute personne à la recherche de solutions d'approvisionnement."
+                      &quot;Le professionnalisme et le soutien de JOSGLOBAL ont dépassé nos attentes. Nous recommandons vivement leurs services à toute personne à la recherche de solutions d&apos;approvisionnement.&quot;
                     </p>
                   </div>
                 </div>
@@ -149,7 +149,7 @@ export default function About() {
                 <div className="relative mb-20">
                   <div className="max-w-max mx-auto lg:max-w-4xl">
                     <p className="text-lg text-gray-400 leading-8 mb-8 text-center">
-                      "JOSGLOBAL a rationalisé notre processus d'approvisionnement et a été un partenaire fiable. Leur souci du détail et leur engagement envers la qualité sont remarquables."
+                      &quot;JOSGLOBAL a rationalisé notre processus d&apos;approvisionnement et a été un partenaire fiable. Leur souci du détail et leur engagement envers la qualité sont remarquables.&quot;
                     </p>
                   </div>
                 </div>

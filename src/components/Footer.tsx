@@ -7,27 +7,27 @@ import Image from 'next/image';
 
 export default function Footer() {
     const [email, setEmail] = useState('');
-    
+
     const handleSubmit = async (e: React.FormEvent) => {
-      e.preventDefault();
-      try {
-        const response = await fetch('/api/newsletter/subscribe', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ email }),
-        });
-        if (response.ok) {
-          alert('Inscription réussie à la newsletter !');
-          setEmail('');
-        } else {
-          throw new Error('Échec de l\'inscription');
+        e.preventDefault();
+        try {
+            const response = await fetch('/api/newsletter/subscribe', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email }),
+            });
+            if (response.ok) {
+                alert("Inscription réussie à la newsletter !");
+                setEmail('');
+            } else {
+                throw new Error("Échec de l'inscription"); // Changed to double quotes
+            }
+        } catch (error) {
+            console.error("Erreur lors de l'inscription à la newsletter :", error); // Changed to double quotes
+            alert("Échec de l'inscription. Veuillez réessayer."); // Changed to double quotes
         }
-      } catch (error) {
-        console.error('Erreur lors de l\'inscription à la newsletter :', error);
-        alert('Échec de l\'inscription. Veuillez réessayer.');
-      }
     };
 
     return (
@@ -39,7 +39,11 @@ export default function Footer() {
 
             <div className={styles.linksSection}>
                 <ul className={styles.linksList}>
-                    <li className={styles.linkItem}><Link href="/privacy-policy" className={styles.linkAnchor}>Politique de confidentialité</Link></li>
+                    <li className={styles.linkItem}>
+                        <Link href="/privacy-policy" className={styles.linkAnchor}>
+                            Politique de confidentialité
+                        </Link>
+                    </li>
                 </ul>
             </div>
 
@@ -53,7 +57,7 @@ export default function Footer() {
                         onChange={(e) => setEmail(e.target.value)}
                         required
                     />
-                    <button type="submit">S'abonner</button>
+                    <button type="submit">S&apos;abonner</button> {/* Escaped the single quote */}
                 </form>
             </div>
 

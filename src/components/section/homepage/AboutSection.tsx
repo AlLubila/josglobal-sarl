@@ -1,7 +1,6 @@
-import React from 'react'
-import Image from 'next/image'
-
-import styles from '@/styles/section/homepage/aboutSection.module.css'
+import React from 'react';
+import Image from 'next/image';
+import styles from '@/styles/section/homepage/aboutSection.module.css';
 
 export default function AboutSection() {
   return (
@@ -11,8 +10,8 @@ export default function AboutSection() {
           <h1>À propos de nous</h1>
           <p>
             JOSGLOBAL Sarl à Kinshasa connecte les entreprises avec des
-            fournisseurs mondiaux de confiance, en mettant l'accent sur
-            l'intégrité, la qualité et l'innovation pour fournir des solutions
+            fournisseurs mondiaux de confiance, en mettant l&apos;accent sur
+            l&apos;intégrité, la qualité et l&apos;innovation pour fournir des solutions
             B2B fiables et sur mesure.
           </p>
         </div>
@@ -30,12 +29,12 @@ export default function AboutSection() {
           <div className={styles.rightMission}>
             <h1>Notre mission</h1>
             <p>
-              Notre mission est de devenir le principal partenaire d'approvisionnement
+              Notre mission est de devenir le principal partenaire d&apos;approvisionnement
               pour les entreprises en République Démocratique du Congo et à
-              l'international, offrant un accès à des produits de premier choix
+              l&apos;international, offrant un accès à des produits de premier choix
               provenant de fournisseurs mondiaux réputés. Nous nous efforçons de
               fournir de manière cohérente une valeur exceptionnelle grâce à
-              des pratiques d'approvisionnement efficaces, fiables et éthiques.
+              des pratiques d&apos;approvisionnement efficaces, fiables et éthiques.
             </p>
           </div>
         </div>
@@ -44,11 +43,11 @@ export default function AboutSection() {
           <div className={styles.leftValueP}>
             <h1>Proposition de valeur</h1>
             <p>
-              JOSGLOBAL Sarl fournit des solutions d'approvisionnement sur mesure
-              et fiables pour les entreprises, s'appuyant sur un solide réseau de
-              fournisseurs de confiance <span style={{ fontWeight: "bold" }}> à travers l'UE, la Chine, Dubaï, l'Inde et la Turquie. </span>
+              JOSGLOBAL Sarl fournit des solutions d&apos;approvisionnement sur mesure
+              et fiables pour les entreprises, s&apos;appuyant sur un solide réseau de
+              fournisseurs de confiance <span style={{ fontWeight: "bold" }}> à travers l&apos;UE, la Chine, Dubaï, l&apos;Inde et la Turquie. </span>
               Nous offrons une large sélection de produits de haute qualité à des
-              prix compétitifs, ainsi qu'un soutien en matière de branding pour
+              prix compétitifs, ainsi qu&apos;un soutien en matière de branding pour
               renforcer le positionnement sur le marché.
             </p>
           </div>
@@ -63,39 +62,39 @@ export default function AboutSection() {
           </div>
         </div>
 
-  {/* <div className={styles.coreValues}>
-       <h1>Valeurs fondamentales</h1>
-       <div className={styles.value}>
-         <Image
-           src="/coreValues.svg"
-           alt="valeurs fondamentales"
-           width={1000}
-           height={1000}
-           className={styles.coreValueImg}
-           priority
-         />
-      
-         <Image
-           src="/coreValues_tablet.svg"
-           alt="valeurs fondamentales"
-           width={1000}
-           height={1000}
-           className={styles.coreValueImg_tablet}
-           priority
-         />
-     
-         <Image
-           src="/coreValues_mobile_L.svg"
-           alt="valeurs fondamentales"
-           width={1000}
-           height={1000}
-           className={styles.coreValueImg_mobile_L}
-           priority
-         />
-       </div>
-     </div> */}
+        {/* <div className={styles.coreValues}>
+             <h1>Valeurs fondamentales</h1>
+             <div className={styles.value}>
+               <Image
+                 src="/coreValues.svg"
+                 alt="valeurs fondamentales"
+                 width={1000}
+                 height={1000}
+                 className={styles.coreValueImg}
+                 priority
+               />
+            
+               <Image
+                 src="/coreValues_tablet.svg"
+                 alt="valeurs fondamentales"
+                 width={1000}
+                 height={1000}
+                 className={styles.coreValueImg_tablet}
+                 priority
+               />
+           
+               <Image
+                 src="/coreValues_mobile_L.svg"
+                 alt="valeurs fondamentales"
+                 width={1000}
+                 height={1000}
+                 className={styles.coreValueImg_mobile_L}
+                 priority
+               />
+             </div>
+           </div> */}
 
       </section>
     </div>
-  )
+  );
 }

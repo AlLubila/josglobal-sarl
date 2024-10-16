@@ -72,12 +72,12 @@ export default function Service() {
       {/* Première section divisée */}
       <section className={styles.splitSection}>
         <div className={styles.textContent}>
-          <h2 className={styles.title}>Chaîne d'approvisionnement et réseau</h2>
+          <h2 className={styles.title}>Chaîne d&apos;approvisionnement et réseau</h2>
           <p>
-            Notre chaîne d'approvisionnement robuste, en partenariat avec des entreprises de logistique
+            Notre chaîne d&apos;approvisionnement robuste, en partenariat avec des entreprises de logistique
             de premier plan comme{' '}
             <span style={{ fontWeight: 'bold' }}>MAERSK</span>, assure une livraison fluide et une
-            efficacité optimale. Nous gérons l'ensemble du processus logistique, garantissant un
+            efficacité optimale. Nous gérons l&apos;ensemble du processus logistique, garantissant un
             transport des biens à temps et en toute sécurité.
           </p>
         </div>
@@ -90,9 +90,9 @@ export default function Service() {
         <div className={styles.textContent}>
           <h2 className={styles.title}>Support client et services</h2>
           <p>
-            Nous nous concentrons sur la construction de relations durables et la fourniture d'une
+            Nous nous concentrons sur la construction de relations durables et la fourniture d&apos;une
             valeur exceptionnelle. Notre équipe dédiée propose des solutions personnalisées,
-            des options de personnalisation et un support continu après l'achat. Les services
+            des options de personnalisation et un support continu après l&apos;achat. Les services
             supplémentaires incluent le soutien à la marque, la coordination logistique et les
             informations sur le marché.
           </p>
