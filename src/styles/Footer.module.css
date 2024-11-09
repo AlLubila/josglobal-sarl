@@ -53,7 +53,6 @@
 
 /* SUBSCRIPTION SECTION */
 .subscriptionSection {
-    margin: 20px 0;
     width: 100%;
     max-width: 400px;
 }
@@ -124,6 +123,15 @@
     transition: transform 0.2s ease-in-out;
 }
 
+.developerName{
+    transition: 0.3s ease;
+}
+
+.developerName:hover{   
+    color: rgb(115, 115, 232);
+    cursor: pointer;
+}
+
 /* RESPONSIVENESS */
 
 /* Larger screens - Desktop and larger tablets */
@@ -163,7 +171,7 @@
     }
 
     .developerName {
-        margin-top: 20px; /* Adding margin for the developer's name */
+        margin-top: 0px; /* Adding margin for the developer's name */
         font-size: 14px; /* Smaller font size for developer's name */
         color: #ccc; /* Lighter color for contrast */
     }

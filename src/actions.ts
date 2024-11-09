@@ -1,7 +1,7 @@
 "use server"
 import { Resend } from "resend";
 import EmailTemplate from "@/emails/EmailTemplate";
-import NewsletterTemplate from "@/emails/NewsletterTemplate"; // You'll need to create this
+import NewsletterTemplate from "@/emails/NewsletterTemplate";
 
 interface State {
   error: string | null;
