@@ -76,7 +76,7 @@ export default function Service() {
           <p>
             Notre chaîne d&apos;approvisionnement robuste, en partenariat avec des entreprises de logistique
             de premier plan comme{' '}
-            <span style={{ fontWeight: 'bold' }}>MAERSK</span>, assure une livraison fluide et une
+            <span style={{ fontWeight: 'bold' }}>MAERSK</span> et <span style={{ fontWeight: 'bold' }}>STOCK POLSKA</span>, assure une livraison fluide et une
             efficacité optimale. Nous gérons l&apos;ensemble du processus logistique, garantissant un
             transport des biens à temps et en toute sécurité.
           </p>

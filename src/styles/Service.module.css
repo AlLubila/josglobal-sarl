@@ -50,6 +50,10 @@
     margin-bottom: 20px; 
     text-transform: uppercase; 
     letter-spacing: 1.5px; 
+    word-wrap: break-word; /* Ensure long words break */
+    word-break: break-word; /* Handle any long unbreakable words */
+    overflow-wrap: break-word; /* Modern approach for wrapping */
+    line-height: 1.2;
 }
 
 

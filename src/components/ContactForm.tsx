@@ -4,8 +4,10 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { sendEmail } from "@/actions";
 import styles from '../styles/Contact.module.css';
 import { FaFacebook, FaLinkedin, FaTwitter, FaInstagramSquare } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Link from 'next/link';
 
 // Define the type for the response
 interface SendEmailResponse {
@@ -74,7 +76,7 @@ export default function ContactForm() {
       <div className={styles.contactInfos}>
         <div className={styles.phoneInfos}>
           <h1>APPELEZ-NOUS</h1>
-          <p>1 (234) 567-879</p>
+          <Link href="tel:+48 739235083">+48 739235083</Link>
         </div>
         <div className={styles.addressInfos}>
           <h1>EMPLACEMENT</h1>
@@ -83,10 +85,18 @@ export default function ContactForm() {
         <div className={styles.socialMedia}>
           <h1>MÉDIAS SOCIAUX</h1>
           <div className={styles.socialItems}>
-            <FaFacebook size={24} />
-            <FaInstagramSquare size={24} />
-            <FaTwitter size={24} />
-            <FaLinkedin size={24} />
+            <Link href='josglobalsarl.services7@gmail.com' target="_blank" rel="noopener noreferrer">
+            <SiGmail size={24}/>
+            </Link>
+
+            <Link href='https://x.com/JosglobalSarl7' target="_blank" rel="noopener noreferrer">
+            <FaTwitter size={24}/>
+            </Link>
+          
+            <Link href='https://www.instagram.com/josglobal.sarl7/' target="_blank" rel="noopener noreferrer">
+            <FaInstagramSquare size={24}/>
+            </Link>
+           
           </div>
         </div>
       </div>
