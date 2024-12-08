@@ -80,7 +80,7 @@ export default function ContactForm() {
         </div>
         <div className={styles.addressInfos}>
           <h1>EMPLACEMENT</h1>
-          <p>Kinshasa, RD Congo</p>
+          <p>14 AV. DONA BEATRICE Q/BINZA-PIGEON: C/NGALIEMA, Kinshasa, RD Congo</p>
         </div>
         <div className={styles.socialMedia}>
           <h1>MÉDIAS SOCIAUX</h1>

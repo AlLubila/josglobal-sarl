@@ -35,5 +35,5 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/app/api/blog/route.ts", "testConnection.mjs"  ]
+, "src/app/api/blog/route.ts", "testConnection.mjs", "src/components/section/homepage/CardSection.jsx"  ]
 }
