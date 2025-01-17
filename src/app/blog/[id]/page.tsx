@@ -9,7 +9,7 @@ import ErrorPage from '@/components/ErrorPage';
 
 interface Blog {
   _id: string;
-  title: string; 
+  title: string;
   description: string;
   content: string;
 }
@@ -59,15 +59,16 @@ export default function SinglePost() {
     }
   }, [id]);
 
-  if (loading) return <div><Loading/></div>;
+  if (loading) return <div><Loading /></div>;
 
-  if (error) return <div><ErrorPage/></div>;
+  if (error) return <div><ErrorPage /></div>;
 
   if (!blog) return <div className={styles.notFound}>Article introuvable</div>;
 
+  // Sanitize the blog content to ensure safe HTML rendering
   const sanitizedContent = DOMPurify.sanitize(blog.content, {
-    ALLOWED_TAGS: ['b', 'i', 'em', 'strong', 'a', 'p', 'ul', 'ol', 'li'],
-    ALLOWED_ATTR: ['href', 'target'],
+    ALLOWED_TAGS: ['b', 'i', 'em', 'strong', 'a', 'p', 'ul', 'ol', 'li', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span'],
+    ALLOWED_ATTR: ['href', 'target', 'rel', 'style'],
   });
 
   return (
@@ -79,7 +80,7 @@ export default function SinglePost() {
               <h1 className="text-white font-bold text-4xl mb-11">{blog.title}</h1>
               <hr />
               <div
-                className="text-base leading-8 my-5"
+                className={`${styles.blogContent} text-base leading-8 my-5`}
                 dangerouslySetInnerHTML={{ __html: sanitizedContent }}
               />
             </div>

@@ -1,3 +1,21 @@
+.blog-content a {
+  color: #1e90ff;
+  text-decoration: underline;
+}
+
+.blog-content ul, .blog-content ol {
+  margin-left: 20px;
+}
+
+.blog-content b, .blog-content strong {
+  font-weight: bold;
+}
+
+.blog-content i, .blog-content em {
+  font-style: italic;
+}
+
+
 .container{
   min-height: 100vh;
   margin-top: 90px;

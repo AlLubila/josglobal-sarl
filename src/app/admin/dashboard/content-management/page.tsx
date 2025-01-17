@@ -1,9 +1,13 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { isAdminLoggedIn } from '@/utils/auth';
-import { FaEdit, FaTrashAlt } from 'react-icons/fa'; 
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { isAdminLoggedIn } from "@/utils/auth";
+import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import dynamic from "next/dynamic";
+import "react-quill/dist/quill.snow.css";
+
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 interface Blog {
   _id: string;
@@ -14,13 +18,13 @@ interface Blog {
 
 async function fetchBlogs(): Promise<Blog[]> {
   try {
-    const res = await fetch('/api/blogs', { cache: 'no-store' });
+    const res = await fetch("/api/blogs", { cache: "no-store" });
     if (!res.ok) {
-      throw new Error('Échec du chargement des blogs');
+      throw new Error("Échec du chargement des blogs");
     }
     return await res.json();
   } catch (error) {
-    console.error('Erreur lors du chargement des blogs:', error);
+    console.error("Erreur lors du chargement des blogs:", error);
     return [];
   }
 }
@@ -28,11 +32,11 @@ async function fetchBlogs(): Promise<Blog[]> {
 async function deleteBlog(id: string): Promise<boolean> {
   try {
     const res = await fetch(`/api/blogs/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
     });
     return res.ok;
   } catch (error) {
-    console.error('Erreur lors de la suppression du blog:', error);
+    console.error("Erreur lors de la suppression du blog:", error);
     return false;
   }
 }
@@ -48,11 +52,11 @@ const DESCRIPTION_MAX_LENGTH = 200;
 export default function ContentManagement() {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [formData, setFormData] = useState<FormData>({
-    title: '',
-    description: '',
-    content: ''
+    title: "",
+    description: "",
+    content: "",
   });
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [descriptionLength, setDescriptionLength] = useState(0);
   const [editBlogId, setEditBlogId] = useState<string | null>(null);
@@ -62,7 +66,7 @@ export default function ContentManagement() {
 
   useEffect(() => {
     if (!isAdminLoggedIn()) {
-      router.push('/unauthorized');
+      router.push("/unauthorized");
     }
   }, [router]);
 
@@ -77,46 +81,54 @@ export default function ContentManagement() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setMessage('');
+    setMessage("");
 
     try {
       const form = new FormData();
-      form.append('title', formData.title);
-      form.append('description', formData.description);
-      form.append('content', formData.content);
+      form.append("title", formData.title);
+      form.append("description", formData.description);
+      form.append("content", formData.content);
 
-      const response = await fetch(`/api/blogs/${editBlogId || ''}`, {
-        method: editBlogId ? 'PUT' : 'POST',
+      const response = await fetch(`/api/blogs/${editBlogId || ""}`, {
+        method: editBlogId ? "PUT" : "POST",
         body: form,
       });
 
       const result = await response.json();
 
       if (response.ok) {
-        setMessage(editBlogId ? 'Blog mis à jour avec succès!' : 'Blog créé avec succès!');
-        setFormData({ title: '', description: '', content: '' });
+        setMessage(
+          editBlogId ? "Blog mis à jour avec succès!" : "Blog créé avec succès!"
+        );
+        setFormData({ title: "", description: "", content: "" });
         setDescriptionLength(0);
         setEditBlogId(null);
         const fetchedBlogs = await fetchBlogs();
         setBlogs(fetchedBlogs);
       } else {
-        setMessage(result.message || 'Quelque chose s\'est mal passé.');
+        setMessage(result.message || "Quelque chose s'est mal passé.");
       }
     } catch (error) {
-      setMessage('Erreur lors de la soumission du formulaire.');
+      setMessage("Erreur lors de la soumission du formulaire.");
     }
     setIsSubmitting(false);
 
     // Masquer le message après 3 secondes
-    setTimeout(() => setMessage(''), 3000);
+    setTimeout(() => setMessage(""), 3000);
   };
 
-  const handleDescriptionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleDescriptionChange = (
+    e: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
     const description = e.target.value;
     if (description.length <= DESCRIPTION_MAX_LENGTH) {
       setFormData({ ...formData, description });
       setDescriptionLength(description.length);
     }
+  };
+
+  const handleContentChange = (value: string) => {
+    setFormData({ ...formData, content: value });
   };
 
   const handleEdit = (blog: Blog) => {
@@ -138,9 +150,9 @@ export default function ContentManagement() {
       const success = await deleteBlog(blogToDelete);
       if (success) {
         setBlogs(blogs.filter((blog) => blog._id !== blogToDelete));
-        setMessage('Blog supprimé avec succès!');
+        setMessage("Blog supprimé avec succès!");
       } else {
-        setMessage('Erreur lors de la suppression du blog.');
+        setMessage("Erreur lors de la suppression du blog.");
       }
       setShowDeleteModal(false);
       setBlogToDelete(null);
@@ -149,27 +161,42 @@ export default function ContentManagement() {
 
   return (
     <>
-      <h1 className="text-3xl font-bold my-6 text-center text-white">Gestion de contenu</h1>
+      <h1 className="text-3xl font-bold my-6 text-center text-white">
+        Gestion de contenu
+      </h1>
       <div className="min-h-screen flex flex-col items-center bg-[#021526] text-white py-10 px-4">
         {/* Section Créer ou Mettre à jour un blog */}
         <section className="w-full max-w-2xl bg-gray-800 p-8 rounded-lg shadow-lg mb-10">
-          <h2 className="text-2xl font-bold mb-4 text-center">{editBlogId ? 'Modifier le blog' : 'Créer un blog'}</h2>
+          <h2 className="text-2xl font-bold mb-4 text-center">
+            {editBlogId ? "Modifier le blog" : "Créer un blog"}
+          </h2>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="title" className="block text-sm font-semibold mb-2">Titre</label>
+              <label
+                htmlFor="title"
+                className="block text-sm font-semibold mb-2"
+              >
+                Titre
+              </label>
               <input
                 id="title"
                 type="text"
                 placeholder="Entrez le titre"
                 value={formData.title}
-                onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, title: e.target.value })
+                }
                 className="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-blue-500 focus:ring-2 focus:outline-none"
                 required
               />
             </div>
-
             <div>
-              <label htmlFor="description" className="block text-sm font-semibold mb-2">Description</label>
+              <label
+                htmlFor="description"
+                className="block text-sm font-semibold mb-2"
+              >
+                Description
+              </label>
               <textarea
                 id="description"
                 rows={5}
@@ -183,35 +210,54 @@ export default function ContentManagement() {
                 {descriptionLength}/{DESCRIPTION_MAX_LENGTH} caractères
               </div>
             </div>
-
             <div>
-              <label htmlFor="content" className="block text-sm font-semibold mb-2">Contenu</label>
-              <textarea
-                id="content"
-                rows={8}
-                placeholder="Entrez le contenu"
+              <label
+                htmlFor="content"
+                className="block text-sm font-semibold mb-2"
+              >
+                Contenu
+              </label>
+              <ReactQuill
                 value={formData.content}
-                onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-                className="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-blue-500 focus:ring-2 focus:outline-none"
-                required
+                onChange={handleContentChange}
+                modules={{
+                  toolbar: [
+                    [{ 'header': '1'}, { 'header': '2' }, { 'font': [] }],
+                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                    ['bold', 'italic', 'underline'],
+                    ['link'],
+                    [{ 'align': [] }],
+                    ['image', 'video'],
+                    [{ 'color': [] }, { 'background': [] }],
+                    ['blockquote', 'code-block']
+                  ],
+                }}
+                className="text-white rounded-lg"
               />
             </div>
-
 
             <button
               type="submit"
               disabled={isSubmitting}
               className="w-full bg-blue-600 hover:bg-blue-700 focus:ring focus:ring-blue-500 text-white py-3 rounded-lg font-bold transition duration-300"
             >
-              {isSubmitting ? 'Envoi en cours...' : editBlogId ? 'Mettre à jour l\'article' : 'Créer l\'article'}
+              {isSubmitting
+                ? "Envoi en cours..."
+                : editBlogId
+                ? "Mettre à jour l'article"
+                : "Créer l'article"}
             </button>
-            {message && <p className="text-center mt-4 text-yellow-400">{message}</p>}
+            {message && (
+              <p className="text-center mt-4 text-yellow-400">{message}</p>
+            )}
           </form>
         </section>
 
         {/* Liste des articles de blog pour modifier/supprimer */}
         <section className="w-full max-w-4xl bg-gray-800 p-8 rounded-lg shadow-lg">
-          <h2 className="text-xl font-bold mb-6 text-center text-white">Articles existants</h2>
+          <h2 className="text-xl font-bold mb-6 text-center text-white">
+            Articles existants
+          </h2>
           <div className="overflow-x-auto">
             {blogs.length > 0 ? (
               <table className="table-auto w-full text-left text-gray-300">
@@ -225,10 +271,17 @@ export default function ContentManagement() {
                 </thead>
                 <tbody>
                   {blogs.map((blog, index) => (
-                    <tr key={blog._id} className="border-b border-gray-600 hover:bg-gray-700 transition duration-300">
+                    <tr
+                      key={blog._id}
+                      className="border-b border-gray-600 hover:bg-gray-700 transition duration-300"
+                    >
                       <td className="px-4 py-4 text-center">{index + 1}</td>
-                      <td className="px-4 py-4 font-semibold text-blue-400">{blog.title}</td>
-                      <td className="px-4 py-4 text-gray-400">{blog.description}</td>
+                      <td className="px-4 py-4 font-semibold text-blue-400">
+                        {blog.title}
+                      </td>
+                      <td className="px-4 py-4 text-gray-400">
+                        {blog.description}
+                      </td>
                       <td className="px-4 py-4 flex justify-center space-x-4">
                         <button
                           onClick={() => handleEdit(blog)}
@@ -248,7 +301,9 @@ export default function ContentManagement() {
                 </tbody>
               </table>
             ) : (
-              <p className="text-center text-gray-400">Aucun article disponible.</p>
+              <p className="text-center text-gray-400">
+                Aucun article disponible.
+              </p>
             )}
           </div>
         </section>
@@ -258,8 +313,12 @@ export default function ContentManagement() {
       {showDeleteModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-lg shadow-lg">
-            <h3 className="text-xl font-bold mb-4 text-center">Confirmer la suppression</h3>
-            <p className="text-gray-600 text-center mb-6">Êtes-vous sûr de vouloir supprimer cet article de blog?</p>
+            <h3 className="text-xl font-bold mb-4 text-center">
+              Confirmer la suppression
+            </h3>
+            <p className="text-gray-600 text-center mb-6">
+              Êtes-vous sûr de vouloir supprimer cet article de blog?
+            </p>
             <div className="flex justify-around">
               <button
                 onClick={confirmDelete}
@@ -277,6 +336,15 @@ export default function ContentManagement() {
           </div>
         </div>
       )}
+
+      {/* Custom styles for the Quill editor */}
+      <style jsx global>{`
+        .ql-editor {
+          min-height: 300px;
+          padding: 20px;
+          font-size: 16px;
+        }
+      `}</style>
     </>
   );
 }

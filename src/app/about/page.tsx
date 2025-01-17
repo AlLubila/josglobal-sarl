@@ -84,7 +84,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-20 bg-gray-900">
+    {/*  <section className="py-20 bg-gray-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="font-manrope text-4xl text-center text-white font-bold mb-14">Nos Résultats en Chiffres</h2>
           <div className="flex flex-col gap-5 xl:gap-8 lg:flex-row lg:justify-between">
@@ -117,7 +117,7 @@ export default function About() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="py-14 mt-16 lg:py-2">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
