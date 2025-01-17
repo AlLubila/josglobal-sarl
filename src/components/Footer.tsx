@@ -75,9 +75,6 @@ export default function Footer() {
                     </Link>
                 </div>
             </div>
-            <Link href='https://www.albilubila.pl/' target="_blank" rel="noopener noreferrer">
-            <p className={styles.developerName}>Développé par Albi Lubila</p>
-            </Link>
             
         </div>
     );

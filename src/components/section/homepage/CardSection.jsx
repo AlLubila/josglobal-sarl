@@ -2,11 +2,11 @@ import React from 'react';
 import ImageSlider from './ImageSlider';
 
 export default function CardSection() {
-  const slides1 = ['/car/car.jpg', '/car/car2.jpg', '/car/car3.jpg', '/car/car4.jpg', '/car/car5.jpg'];
-  const slides2 = ['/clothe/clothe.jpg', '/clothe/clothe2.jpg', '/clothe/clothe3.jpg', '/clothe/clothe4.jpg', '/clothe/clothe5.jpg'];
-  const slides3 = ['/construction/construction.jpg', '/construction/construction2.jpg', '/construction/construction3.jpg', '/construction/construction4.jpg', '/construction/construction5.jpg']; 
-  const slides4 = ['/device/device.jpg', '/device/device2.jpg', '/device/device3.jpg','/device/device4.jpg', '/device/device5.jpg'];
-  const slides5 = ['/agriculture/agriculture.jpg', '/agriculture/agriculture2.jpg', '/agriculture/agriculture3.jpg', '/agriculture/agriculture4.jpg', '/agriculture/agriculture5.jpg'];
+  const slides1 = ['/car/car.jpg'];
+  const slides2 = ['/clothe/clothe.jpg'];
+  const slides3 = ['/construction/construction.jpg']; 
+  const slides4 = ['/device/device.jpg'];
+  const slides5 = ['/agriculture/agriculture.jpg'];
 
   const parentStyles = {
     display: 'grid',
