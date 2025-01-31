@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import DOMPurify from 'dompurify';
+import 'react-quill/dist/quill.snow.css';
 import styles from '@/styles/SingleBlog.module.css';
 import Loading from '@/components/Loading';
 import ErrorPage from '@/components/ErrorPage';
@@ -26,8 +27,8 @@ async function fetchBlog(id: string): Promise<Blog | null> {
   } catch (error) {
     console.error('Error fetching blog:', error);
     return null;
-  }
-}
+  } 
+} 
 
 export default function SinglePost() {
   const [blog, setBlog] = useState<Blog | null>(null);
@@ -67,9 +68,18 @@ export default function SinglePost() {
 
   // Sanitize the blog content to ensure safe HTML rendering
   const sanitizedContent = DOMPurify.sanitize(blog.content, {
-    ALLOWED_TAGS: ['b', 'i', 'em', 'strong', 'a', 'p', 'ul', 'ol', 'li', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span'],
-    ALLOWED_ATTR: ['href', 'target', 'rel', 'style'],
+    ALLOWED_TAGS: [
+      'b', 'i', 'em', 'strong', 'a', 'p', 'ul', 'ol', 'li', 'u',
+      'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span', 'img', 'video', 'iframe',
+      'blockquote', 'pre', 'code', 'br'
+    ],
+    ALLOWED_ATTR: [
+      'href', 'target', 'rel', 'style', 'src', 'alt', 'controls', 
+      'class', 'width', 'height', 'frameborder', 'allow', 'allowfullscreen'
+    ],
   });
+  
+  
 
   return (
     <div className={styles.container}>

@@ -1,5 +1,5 @@
-const ADMIN_EMAIL = 'allubix05@gmail.com';
-const ADMIN_PASSWORD = '@lbi2003';
+const ADMIN_EMAIL = 'josephndaye36@gmail.com';
+const ADMIN_PASSWORD = 'Jos123R456';
 const TOKEN_KEY = 'admin_token';
 
 export const loginAdmin = (email: string, password: string) => {

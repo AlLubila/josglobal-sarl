@@ -222,16 +222,16 @@ export default function ContentManagement() {
                 onChange={handleContentChange}
                 modules={{
                   toolbar: [
-                    [{ 'header': '1'}, { 'header': '2' }, { 'font': [] }],
-                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                    // Ligne 1 : boutons de mise en forme
                     ['bold', 'italic', 'underline'],
+                    // Ligne 2 : couleurs du texte et de fond
+                    [{ color: [] }, { background: [] }],
+                    // Ligne 3 : insertion de lien
                     ['link'],
-                    [{ 'align': [] }],
-                    ['image', 'video'],
-                    [{ 'color': [] }, { 'background': [] }],
-                    ['blockquote', 'code-block']
                   ],
                 }}
+                // On limite les formats disponibles afin que seuls ceux-ci soient utilisés
+                formats={['bold', 'italic', 'underline', 'color', 'background', 'link']}
                 className="text-white rounded-lg"
               />
             </div>
@@ -337,13 +337,18 @@ export default function ContentManagement() {
         </div>
       )}
 
-      {/* Custom styles for the Quill editor */}
+      {/* Styles personnalisés pour l'éditeur Quill */}
       <style jsx global>{`
         .ql-editor {
           min-height: 300px;
           padding: 20px;
           font-size: 16px;
+        
         }
+          .ql-toolbar {
+          display: flex;
+          justify-content: center;
+  }
       `}</style>
     </>
   );
